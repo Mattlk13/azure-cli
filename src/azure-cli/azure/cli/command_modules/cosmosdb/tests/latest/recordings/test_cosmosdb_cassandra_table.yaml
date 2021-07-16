@@ -13,15 +13,12 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.0.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-azure-mgmt-resource/18.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_cosmosdb_cassandra_table000001?api-version=2019-07-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_cosmosdb_cassandra_table000001?api-version=2020-10-01
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001","name":"cli_test_cosmosdb_cassandra_table000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2020-06-18T20:03:44Z"},"properties":{"provisioningState":"Succeeded"}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001","name":"cli_test_cosmosdb_cassandra_table000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2021-06-22T05:24:56Z"},"properties":{"provisioningState":"Succeeded"}}'
     headers:
       cache-control:
       - no-cache
@@ -30,7 +27,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Thu, 18 Jun 2020 20:03:47 GMT
+      - Tue, 22 Jun 2021 05:24:56 GMT
       expires:
       - '-1'
       pragma:
@@ -48,7 +45,7 @@ interactions:
     body: '{"location": "westus", "kind": "GlobalDocumentDB", "properties": {"locations":
       [{"locationName": "westus", "failoverPriority": 0, "isZoneRedundant": false}],
       "databaseAccountOfferType": "Standard", "capabilities": [{"name": "EnableCassandra"}],
-      "apiProperties": {}, "enableAnalyticalStorage": true}}'
+      "apiProperties": {}, "enableAnalyticalStorage": true, "createMode": "Default"}}'
     headers:
       Accept:
       - application/json
@@ -59,41 +56,36 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '299'
+      - '324'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003?api-version=2021-06-15
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003","name":"cli000003","location":"West
-        US","type":"Microsoft.DocumentDB/databaseAccounts","kind":"GlobalDocumentDB","tags":{},"properties":{"provisioningState":"Creating","publicNetworkAccess":"Enabled","enableAutomaticFailover":false,"enableMultipleWriteLocations":false,"enablePartitionKeyMonitor":false,"isVirtualNetworkFilterEnabled":false,"virtualNetworkRules":[],"EnabledApiTypes":"Cassandra","disableKeyBasedMetadataWriteAccess":false,"enableFreeTier":false,"enableAnalyticalStorage":true,"databaseAccountOfferType":"Standard","enableCassandraConnector":false,"connectorOffer":"","consistencyPolicy":{"defaultConsistencyLevel":"Session","maxIntervalInSeconds":5,"maxStalenessPrefix":100},"configurationOverrides":{},"writeLocations":[{"id":"cli000003-westus","locationName":"West
+        US","type":"Microsoft.DocumentDB/databaseAccounts","kind":"GlobalDocumentDB","tags":{},"systemData":{"createdAt":"2021-06-22T05:25:00.3147057Z"},"properties":{"provisioningState":"Creating","publicNetworkAccess":"Enabled","enableAutomaticFailover":false,"enableMultipleWriteLocations":false,"enablePartitionKeyMonitor":false,"isVirtualNetworkFilterEnabled":false,"virtualNetworkRules":[],"EnabledApiTypes":"Cassandra","disableKeyBasedMetadataWriteAccess":false,"enableFreeTier":false,"enableAnalyticalStorage":true,"analyticalStorageConfiguration":{"analyticalStorageSchemaType":"WellDefined"},"instanceId":"68e19891-ee94-4eaa-9749-e954c6a2989b","createMode":"Default","databaseAccountOfferType":"Standard","defaultIdentity":"","networkAclBypass":"None","disableLocalAuth":false,"consistencyPolicy":{"defaultConsistencyLevel":"Session","maxIntervalInSeconds":5,"maxStalenessPrefix":100},"configurationOverrides":{},"writeLocations":[{"id":"cli000003-westus","locationName":"West
         US","provisioningState":"Creating","failoverPriority":0,"isZoneRedundant":false}],"readLocations":[{"id":"cli000003-westus","locationName":"West
         US","provisioningState":"Creating","failoverPriority":0,"isZoneRedundant":false}],"locations":[{"id":"cli000003-westus","locationName":"West
         US","provisioningState":"Creating","failoverPriority":0,"isZoneRedundant":false}],"failoverPolicies":[{"id":"cli000003-westus","locationName":"West
-        US","failoverPriority":0}],"cors":[],"capabilities":[{"name":"EnableCassandra"}],"ipRules":[]}}'
+        US","failoverPriority":0}],"cors":[],"capabilities":[{"name":"EnableCassandra"}],"ipRules":[],"backupPolicy":{"type":"Periodic","periodicModeProperties":{"backupIntervalInMinutes":240,"backupRetentionIntervalInHours":8,"backupStorageRedundancy":"Geo"}},"networkAclBypassResourceIds":[]},"identity":{"type":"None"}}'
     headers:
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
       cache-control:
       - no-store, no-cache
       content-length:
-      - '1558'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn?api-version=2020-04-01
+      - '2008'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:03:53 GMT
+      - Tue, 22 Jun 2021 05:25:01 GMT
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/operationResults/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/operationResults/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
       pragma:
       - no-cache
       server:
@@ -107,9 +99,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1196'
+      - '1199'
     status:
       code: 200
       message: Ok
@@ -117,7 +109,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -127,10 +119,9 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Dequeued"}'
@@ -139,12 +130,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:04:23 GMT
+      - Tue, 22 Jun 2021 05:25:32 GMT
       pragma:
       - no-cache
       server:
@@ -158,7 +147,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -166,7 +155,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -176,10 +165,9 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Dequeued"}'
@@ -188,12 +176,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:04:53 GMT
+      - Tue, 22 Jun 2021 05:26:02 GMT
       pragma:
       - no-cache
       server:
@@ -207,7 +193,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -215,7 +201,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -225,10 +211,9 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Dequeued"}'
@@ -237,12 +222,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:05:24 GMT
+      - Tue, 22 Jun 2021 05:26:32 GMT
       pragma:
       - no-cache
       server:
@@ -256,7 +239,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -264,7 +247,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -274,10 +257,9 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Dequeued"}'
@@ -286,12 +268,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:05:54 GMT
+      - Tue, 22 Jun 2021 05:27:02 GMT
       pragma:
       - no-cache
       server:
@@ -305,7 +285,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -313,7 +293,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -323,10 +303,9 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Dequeued"}'
@@ -335,12 +314,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:06:24 GMT
+      - Tue, 22 Jun 2021 05:27:32 GMT
       pragma:
       - no-cache
       server:
@@ -354,7 +331,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -362,7 +339,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -372,1480 +349,9 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:06:54 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:07:25 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:07:55 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:08:25 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:08:55 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:09:26 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:09:57 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:10:27 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:10:57 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:11:27 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:11:58 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:12:28 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:12:58 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:13:29 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:13:59 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:14:29 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:14:59 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:15:29 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:16:00 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:16:30 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:17:01 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:17:30 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:18:01 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:18:32 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:19:03 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:19:33 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:20:04 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:20:35 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:21:05 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-  response:
-    body:
-      string: '{"status":"Dequeued"}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:21:35 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/f754926d-0cee-47f2-a322-9955fcce8cdb?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Succeeded"}'
@@ -1854,12 +360,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '22'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/c746113d-ce00-4338-87d3-f66ccb057857?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:22:06 GMT
+      - Tue, 22 Jun 2021 05:28:03 GMT
       pragma:
       - no-cache
       server:
@@ -1873,7 +377,58 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
+    status:
+      code: 200
+      message: Ok
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - cosmosdb create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n -g --capabilities --enable-analytical-storage
+      User-Agent:
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003?api-version=2021-06-15
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003","name":"cli000003","location":"West
+        US","type":"Microsoft.DocumentDB/databaseAccounts","kind":"GlobalDocumentDB","tags":{},"systemData":{"createdAt":"2021-06-22T05:27:10.0577882Z"},"properties":{"provisioningState":"Succeeded","documentEndpoint":"https://cli000003.documents.azure.com:443/","cassandraEndpoint":"https://cli000003.cassandra.cosmos.azure.com:443/","publicNetworkAccess":"Enabled","enableAutomaticFailover":false,"enableMultipleWriteLocations":false,"enablePartitionKeyMonitor":false,"isVirtualNetworkFilterEnabled":false,"virtualNetworkRules":[],"EnabledApiTypes":"Cassandra","disableKeyBasedMetadataWriteAccess":false,"enableFreeTier":false,"enableAnalyticalStorage":true,"analyticalStorageConfiguration":{"analyticalStorageSchemaType":"WellDefined"},"instanceId":"68e19891-ee94-4eaa-9749-e954c6a2989b","createMode":"Default","databaseAccountOfferType":"Standard","defaultIdentity":"FirstPartyIdentity","networkAclBypass":"None","disableLocalAuth":false,"consistencyPolicy":{"defaultConsistencyLevel":"Session","maxIntervalInSeconds":5,"maxStalenessPrefix":100},"configurationOverrides":{},"writeLocations":[{"id":"cli000003-westus","locationName":"West
+        US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"readLocations":[{"id":"cli000003-westus","locationName":"West
+        US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"locations":[{"id":"cli000003-westus","locationName":"West
+        US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"failoverPolicies":[{"id":"cli000003-westus","locationName":"West
+        US","failoverPriority":0}],"cors":[],"capabilities":[{"name":"EnableCassandra"}],"ipRules":[],"backupPolicy":{"type":"Periodic","periodicModeProperties":{"backupIntervalInMinutes":240,"backupRetentionIntervalInHours":8,"backupStorageRedundancy":"Geo"}},"networkAclBypassResourceIds":[]},"identity":{"type":"None"}}'
+    headers:
+      cache-control:
+      - no-store, no-cache
+      content-length:
+      - '2409'
+      content-type:
+      - application/json
+      date:
+      - Tue, 22 Jun 2021 05:28:03 GMT
+      pragma:
+      - no-cache
+      server:
+      - Microsoft-HTTPAPI/2.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-ms-gatewayversion:
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -1891,29 +446,26 @@ interactions:
       ParameterSetName:
       - -n -g --capabilities --enable-analytical-storage
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003?api-version=2021-06-15
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003","name":"cli000003","location":"West
-        US","type":"Microsoft.DocumentDB/databaseAccounts","kind":"GlobalDocumentDB","tags":{},"properties":{"provisioningState":"Succeeded","documentEndpoint":"https://cli000003.documents.azure.com:443/","cassandraEndpoint":"https://cli000003.cassandra.cosmos.azure.com:443/","publicNetworkAccess":"Enabled","enableAutomaticFailover":false,"enableMultipleWriteLocations":false,"enablePartitionKeyMonitor":false,"isVirtualNetworkFilterEnabled":false,"virtualNetworkRules":[],"EnabledApiTypes":"Cassandra","disableKeyBasedMetadataWriteAccess":false,"enableFreeTier":false,"enableAnalyticalStorage":true,"databaseAccountOfferType":"Standard","enableCassandraConnector":false,"connectorOffer":"","consistencyPolicy":{"defaultConsistencyLevel":"Session","maxIntervalInSeconds":5,"maxStalenessPrefix":100},"configurationOverrides":{},"writeLocations":[{"id":"cli000003-westus","locationName":"West
+        US","type":"Microsoft.DocumentDB/databaseAccounts","kind":"GlobalDocumentDB","tags":{},"systemData":{"createdAt":"2021-06-22T05:27:10.0577882Z"},"properties":{"provisioningState":"Succeeded","documentEndpoint":"https://cli000003.documents.azure.com:443/","cassandraEndpoint":"https://cli000003.cassandra.cosmos.azure.com:443/","publicNetworkAccess":"Enabled","enableAutomaticFailover":false,"enableMultipleWriteLocations":false,"enablePartitionKeyMonitor":false,"isVirtualNetworkFilterEnabled":false,"virtualNetworkRules":[],"EnabledApiTypes":"Cassandra","disableKeyBasedMetadataWriteAccess":false,"enableFreeTier":false,"enableAnalyticalStorage":true,"analyticalStorageConfiguration":{"analyticalStorageSchemaType":"WellDefined"},"instanceId":"68e19891-ee94-4eaa-9749-e954c6a2989b","createMode":"Default","databaseAccountOfferType":"Standard","defaultIdentity":"FirstPartyIdentity","networkAclBypass":"None","disableLocalAuth":false,"consistencyPolicy":{"defaultConsistencyLevel":"Session","maxIntervalInSeconds":5,"maxStalenessPrefix":100},"configurationOverrides":{},"writeLocations":[{"id":"cli000003-westus","locationName":"West
         US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"readLocations":[{"id":"cli000003-westus","locationName":"West
         US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"locations":[{"id":"cli000003-westus","locationName":"West
         US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"failoverPolicies":[{"id":"cli000003-westus","locationName":"West
-        US","failoverPriority":0}],"cors":[],"capabilities":[{"name":"EnableCassandra"}],"ipRules":[]}}'
+        US","failoverPriority":0}],"cors":[],"capabilities":[{"name":"EnableCassandra"}],"ipRules":[],"backupPolicy":{"type":"Periodic","periodicModeProperties":{"backupIntervalInMinutes":240,"backupRetentionIntervalInHours":8,"backupStorageRedundancy":"Geo"}},"networkAclBypassResourceIds":[]},"identity":{"type":"None"}}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '1941'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn?api-version=2020-04-01
+      - '2409'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:22:06 GMT
+      - Tue, 22 Jun 2021 05:28:03 GMT
       pragma:
       - no-cache
       server:
@@ -1927,63 +479,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
-    status:
-      code: 200
-      message: Ok
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - cosmosdb create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - -n -g --capabilities --enable-analytical-storage
-      User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003?api-version=2020-04-01
-  response:
-    body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003","name":"cli000003","location":"West
-        US","type":"Microsoft.DocumentDB/databaseAccounts","kind":"GlobalDocumentDB","tags":{},"properties":{"provisioningState":"Succeeded","documentEndpoint":"https://cli000003.documents.azure.com:443/","cassandraEndpoint":"https://cli000003.cassandra.cosmos.azure.com:443/","publicNetworkAccess":"Enabled","enableAutomaticFailover":false,"enableMultipleWriteLocations":false,"enablePartitionKeyMonitor":false,"isVirtualNetworkFilterEnabled":false,"virtualNetworkRules":[],"EnabledApiTypes":"Cassandra","disableKeyBasedMetadataWriteAccess":false,"enableFreeTier":false,"enableAnalyticalStorage":true,"databaseAccountOfferType":"Standard","enableCassandraConnector":false,"connectorOffer":"","consistencyPolicy":{"defaultConsistencyLevel":"Session","maxIntervalInSeconds":5,"maxStalenessPrefix":100},"configurationOverrides":{},"writeLocations":[{"id":"cli000003-westus","locationName":"West
-        US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"readLocations":[{"id":"cli000003-westus","locationName":"West
-        US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"locations":[{"id":"cli000003-westus","locationName":"West
-        US","documentEndpoint":"https://cli000003-westus.documents.azure.com:443/","provisioningState":"Succeeded","failoverPriority":0,"isZoneRedundant":false}],"failoverPolicies":[{"id":"cli000003-westus","locationName":"West
-        US","failoverPriority":0}],"cors":[],"capabilities":[{"name":"EnableCassandra"}],"ipRules":[]}}'
-    headers:
-      cache-control:
-      - no-store, no-cache
-      content-length:
-      - '1941'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn?api-version=2020-04-01
-      content-type:
-      - application/json
-      date:
-      - Thu, 18 Jun 2020 20:22:06 GMT
-      pragma:
-      - no-cache
-      server:
-      - Microsoft-HTTPAPI/2.0
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2001,34 +497,29 @@ interactions:
       Content-Length:
       - '70'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - -g -a -n
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Enqueued"}'
     headers:
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/ee1a1625-5dbb-44f1-bbd8-255494334339?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/1d00e6a3-8a6e-4647-9349-8143c594a4ef?api-version=2021-06-15
       cache-control:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:22:07 GMT
+      - Tue, 22 Jun 2021 05:28:03 GMT
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/operationResults/ee1a1625-5dbb-44f1-bbd8-255494334339?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/operationResults/1d00e6a3-8a6e-4647-9349-8143c594a4ef?api-version=2021-06-15
       pragma:
       - no-cache
       server:
@@ -2038,9 +529,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1198'
+      - '1199'
     status:
       code: 202
       message: Accepted
@@ -2048,7 +539,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2058,10 +549,9 @@ interactions:
       ParameterSetName:
       - -g -a -n
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/ee1a1625-5dbb-44f1-bbd8-255494334339?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/1d00e6a3-8a6e-4647-9349-8143c594a4ef?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Succeeded"}'
@@ -2070,12 +560,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '22'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/ee1a1625-5dbb-44f1-bbd8-255494334339?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:22:38 GMT
+      - Tue, 22 Jun 2021 05:28:34 GMT
       pragma:
       - no-cache
       server:
@@ -2089,7 +577,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2097,7 +585,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2107,24 +595,21 @@ interactions:
       ParameterSetName:
       - -g -a -n
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004?api-version=2021-06-15
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces","name":"cli000004","properties":{"resource":{"id":"cli000004","_rid":"Sw1TAA==","_etag":"\"0000b005-0000-0700-0000-5eebccf40000\"","_ts":1592511732}}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces","name":"cli000004","properties":{"resource":{"id":"cli000004","_rid":"+RYiAA==","_etag":"\"0000b002-0000-0700-0000-60d174e80000\"","_ts":1624339688}}}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
       - '478'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:22:38 GMT
+      - Tue, 22 Jun 2021 05:28:34 GMT
       pragma:
       - no-cache
       server:
@@ -2138,7 +623,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2156,41 +641,38 @@ interactions:
       ParameterSetName:
       - -g -a -k -n
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
       string: '{"code":"NotFound","message":"Message: {\"code\":\"NotFound\",\"message\":\"Message:
-        {\\\"Errors\\\":[\\\"Resource Not Found\\\"]}\\r\\nActivityId: 74b5213b-b1a1-11ea-96dc-b46bfc3d8f4d,
-        Request URI: /apps/a838b6b5-36e0-43c6-8479-9b6c837000ca/services/68c9d14b-4919-4330-921b-2372b0051eb4/partitions/e1cb3c13-241a-4b58-8d68-350f966d9f59/replicas/132369537056751397s,
-        RequestStats: \\r\\nRequestStartTime: 2020-06-18T20:22:40.7886346Z, RequestEndTime:
-        2020-06-18T20:22:40.7986157Z,  Number of regions attempted:1\\r\\nResponseTime:
-        2020-06-18T20:22:40.7986157Z, StoreResult: StorePhysicalAddress: rntbd://10.0.0.20:11000/apps/a838b6b5-36e0-43c6-8479-9b6c837000ca/services/68c9d14b-4919-4330-921b-2372b0051eb4/partitions/e1cb3c13-241a-4b58-8d68-350f966d9f59/replicas/132369537056751397s,
-        LSN: 7, GlobalCommittedLsn: 7, PartitionKeyRangeId: , IsValid: True, StatusCode:
-        404, SubStatusCode: 0, RequestCharge: 1, ItemLSN: -1, SessionToken: -1#7,
-        UsingLocalLSN: False, TransportException: null, ResourceType: Collection,
-        OperationType: Read\\r\\nResponseTime: 2020-06-18T20:22:40.7986157Z, StoreResult:
-        StorePhysicalAddress: rntbd://10.0.0.21:11000/apps/a838b6b5-36e0-43c6-8479-9b6c837000ca/services/68c9d14b-4919-4330-921b-2372b0051eb4/partitions/e1cb3c13-241a-4b58-8d68-350f966d9f59/replicas/132369620765753749s,
-        LSN: 7, GlobalCommittedLsn: 7, PartitionKeyRangeId: , IsValid: True, StatusCode:
-        404, SubStatusCode: 0, RequestCharge: 1, ItemLSN: -1, SessionToken: -1#7,
-        UsingLocalLSN: False, TransportException: null, ResourceType: Collection,
-        OperationType: Read\\r\\n, SDK: Microsoft.Azure.Documents.Common/2.11.0\"},
-        Request URI: /dbs/cli000004/colls/cli000002, RequestStats: , SDK: Microsoft.Azure.Documents.Common/2.11.0"}'
+        {\\\"Errors\\\":[\\\"Resource Not Found. Learn more: https:\\\\/\\\\/aka.ms\\\\/cosmosdb-tsg-not-found\\\"]}\\r\\nActivityId:
+        b0ed7a95-d31a-11eb-ba8a-b831b59239b2, Request URI: /apps/fbfce577-ce81-4d79-b35d-ce1b7f0fbd6b/services/dbe4523a-30cc-4395-8607-5b0dc402e3b2/partitions/27387fd0-f14e-427a-ba99-8cca69987e32/replicas/132688032051465382s,
+        RequestStats: \\r\\nRequestStartTime: 2021-06-22T05:28:36.3461760Z, RequestEndTime:
+        2021-06-22T05:28:36.3561788Z,  Number of regions attempted:1\\r\\nResponseTime:
+        2021-06-22T05:28:36.3561788Z, StoreResult: StorePhysicalAddress: rntbd://10.0.0.21:11300/apps/fbfce577-ce81-4d79-b35d-ce1b7f0fbd6b/services/dbe4523a-30cc-4395-8607-5b0dc402e3b2/partitions/27387fd0-f14e-427a-ba99-8cca69987e32/replicas/132688032051465382s,
+        LSN: 9, GlobalCommittedLsn: 9, PartitionKeyRangeId: , IsValid: True, StatusCode:
+        404, SubStatusCode: 0, RequestCharge: 1, ItemLSN: -1, SessionToken: -1#9,
+        UsingLocalLSN: False, TransportException: null, BELatencyMs: 1.693, ActivityId:
+        b0ed7a95-d31a-11eb-ba8a-b831b59239b2, ResourceType: Collection, OperationType:
+        Read\\r\\nResponseTime: 2021-06-22T05:28:36.3561788Z, StoreResult: StorePhysicalAddress:
+        rntbd://10.0.0.24:11300/apps/fbfce577-ce81-4d79-b35d-ce1b7f0fbd6b/services/dbe4523a-30cc-4395-8607-5b0dc402e3b2/partitions/27387fd0-f14e-427a-ba99-8cca69987e32/replicas/132688032051465383s,
+        LSN: 9, GlobalCommittedLsn: 9, PartitionKeyRangeId: , IsValid: True, StatusCode:
+        404, SubStatusCode: 0, RequestCharge: 1, ItemLSN: -1, SessionToken: -1#9,
+        UsingLocalLSN: False, TransportException: null, BELatencyMs: 1.12, ActivityId:
+        b0ed7a95-d31a-11eb-ba8a-b831b59239b2, ResourceType: Collection, OperationType:
+        Read\\r\\n, SDK: Microsoft.Azure.Documents.Common/2.14.0\"}, Request URI:
+        /dbs/cli000004/colls/cli000002, RequestStats: , SDK: Microsoft.Azure.Documents.Common/2.14.0"}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '1732'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
+      - '1934'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:22:40 GMT
+      - Tue, 22 Jun 2021 05:28:36 GMT
       pragma:
       - no-cache
       server:
@@ -2200,7 +682,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 404
       message: NotFound
@@ -2220,34 +702,29 @@ interactions:
       Content-Length:
       - '203'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - -g -a -k -n --schema --analytical-storage-ttl
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Enqueued"}'
     headers:
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/fe89a462-6664-4b55-88e9-9fad5b40e77a?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/1c3f5494-b5c5-4b19-ad17-b10243f20ee4?api-version=2021-06-15
       cache-control:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:22:42 GMT
+      - Tue, 22 Jun 2021 05:28:37 GMT
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002/operationResults/fe89a462-6664-4b55-88e9-9fad5b40e77a?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002/operationResults/1c3f5494-b5c5-4b19-ad17-b10243f20ee4?api-version=2021-06-15
       pragma:
       - no-cache
       server:
@@ -2257,7 +734,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
       x-ms-ratelimit-remaining-subscription-writes:
       - '1199'
     status:
@@ -2267,7 +744,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2277,10 +754,9 @@ interactions:
       ParameterSetName:
       - -g -a -k -n --schema --analytical-storage-ttl
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/fe89a462-6664-4b55-88e9-9fad5b40e77a?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/1c3f5494-b5c5-4b19-ad17-b10243f20ee4?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Succeeded"}'
@@ -2289,12 +765,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '22'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/fe89a462-6664-4b55-88e9-9fad5b40e77a?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:12 GMT
+      - Tue, 22 Jun 2021 05:29:07 GMT
       pragma:
       - no-cache
       server:
@@ -2308,7 +782,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2316,7 +790,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2326,24 +800,21 @@ interactions:
       ParameterSetName:
       - -g -a -k -n --schema --analytical-storage-ttl
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"Sw1TAKHxGiA=","_etag":"\"0000b305-0000-0700-0000-5eebcd170000\"","_ts":1592511767,"defaultTtl":-1,"analyticalStorageTtl":3000,"schema":{"columns":[{"name":"columnA","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"+RYiAMyNTd4=","_etag":"\"0000b402-0000-0700-0000-60d1750a0000\"","_ts":1624339722,"defaultTtl":0,"analyticalStorageTtl":3000,"schema":{"columns":[{"name":"columnA","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '650'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
+      - '649'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:13 GMT
+      - Tue, 22 Jun 2021 05:29:08 GMT
       pragma:
       - no-cache
       server:
@@ -2357,7 +828,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2375,26 +846,21 @@ interactions:
       ParameterSetName:
       - -g -a -k -n --schema --analytical-storage-ttl
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"Sw1TAKHxGiA=","_etag":"\"0000b305-0000-0700-0000-5eebcd170000\"","_ts":1592511767,"defaultTtl":-1,"analyticalStorageTtl":3000,"schema":{"columns":[{"name":"columnA","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"+RYiAMyNTd4=","_etag":"\"0000b402-0000-0700-0000-60d1750a0000\"","_ts":1624339722,"defaultTtl":0,"analyticalStorageTtl":3000,"schema":{"columns":[{"name":"columnA","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '650'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
+      - '649'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:16 GMT
+      - Tue, 22 Jun 2021 05:29:08 GMT
       pragma:
       - no-cache
       server:
@@ -2408,12 +874,12 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
 - request:
-    body: '{"properties": {"resource": {"id": "cli000002", "defaultTtl": -1, "schema":
+    body: '{"properties": {"resource": {"id": "cli000002", "defaultTtl": 0, "schema":
       {"columns": [{"name": "columnA", "type": "Ascii"}, {"name": "columnB", "type":
       "Ascii"}], "partitionKeys": [{"name": "columnA"}]}, "analyticalStorageTtl":
       6000}, "options": {}}}'
@@ -2427,36 +893,31 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '259'
+      - '258'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - -g -a -k -n --schema --analytical-storage-ttl
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Enqueued"}'
     headers:
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/eccc219a-875c-4305-a964-b50ea2393645?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/e353d73f-d8e0-4b62-94c3-279379c15aaa?api-version=2021-06-15
       cache-control:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:17 GMT
+      - Tue, 22 Jun 2021 05:29:09 GMT
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002/operationResults/eccc219a-875c-4305-a964-b50ea2393645?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002/operationResults/e353d73f-d8e0-4b62-94c3-279379c15aaa?api-version=2021-06-15
       pragma:
       - no-cache
       server:
@@ -2466,9 +927,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1198'
+      - '1199'
     status:
       code: 202
       message: Accepted
@@ -2476,7 +937,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2486,10 +947,9 @@ interactions:
       ParameterSetName:
       - -g -a -k -n --schema --analytical-storage-ttl
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/eccc219a-875c-4305-a964-b50ea2393645?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/e353d73f-d8e0-4b62-94c3-279379c15aaa?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Succeeded"}'
@@ -2498,12 +958,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '22'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/eccc219a-875c-4305-a964-b50ea2393645?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:48 GMT
+      - Tue, 22 Jun 2021 05:29:39 GMT
       pragma:
       - no-cache
       server:
@@ -2517,7 +975,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2525,7 +983,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2535,24 +993,21 @@ interactions:
       ParameterSetName:
       - -g -a -k -n --schema --analytical-storage-ttl
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"Sw1TAKHxGiA=","_etag":"\"0000b905-0000-0700-0000-5eebcd390000\"","_ts":1592511801,"defaultTtl":-1,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"+RYiAMyNTd4=","_etag":"\"0000b902-0000-0700-0000-60d175290000\"","_ts":1624339753,"defaultTtl":0,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '684'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
+      - '683'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:48 GMT
+      - Tue, 22 Jun 2021 05:29:39 GMT
       pragma:
       - no-cache
       server:
@@ -2566,7 +1021,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2584,26 +1039,21 @@ interactions:
       ParameterSetName:
       - -g -a -k -n
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"Sw1TAKHxGiA=","_etag":"\"0000b905-0000-0700-0000-5eebcd390000\"","_ts":1592511801,"defaultTtl":-1,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"+RYiAMyNTd4=","_etag":"\"0000b902-0000-0700-0000-60d175290000\"","_ts":1624339753,"defaultTtl":0,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '684'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
+      - '683'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:50 GMT
+      - Tue, 22 Jun 2021 05:29:40 GMT
       pragma:
       - no-cache
       server:
@@ -2617,7 +1067,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2635,26 +1085,21 @@ interactions:
       ParameterSetName:
       - -g -a -k
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables?api-version=2021-06-15
   response:
     body:
-      string: '{"value":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"Sw1TAKHxGiA=","_etag":"\"0000b905-0000-0700-0000-5eebcd390000\"","_ts":1592511801,"defaultTtl":-1,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}]}'
+      string: '{"value":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"+RYiAMyNTd4=","_etag":"\"0000b902-0000-0700-0000-60d175290000\"","_ts":1624339753,"defaultTtl":0,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}]}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '696'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables?api-version=2020-04-01
+      - '695'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:51 GMT
+      - Tue, 22 Jun 2021 05:29:41 GMT
       pragma:
       - no-cache
       server:
@@ -2668,7 +1113,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2686,26 +1131,21 @@ interactions:
       ParameterSetName:
       - -g -a -k -n
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"Sw1TAKHxGiA=","_etag":"\"0000b905-0000-0700-0000-5eebcd390000\"","_ts":1592511801,"defaultTtl":-1,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002","type":"Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables","name":"cli000002","properties":{"resource":{"id":"cli000002","_rid":"+RYiAMyNTd4=","_etag":"\"0000b902-0000-0700-0000-60d175290000\"","_ts":1624339753,"defaultTtl":0,"analyticalStorageTtl":6000,"schema":{"columns":[{"name":"columnA","type":"ascii"},{"name":"columnB","type":"ascii"}],"partitionKeys":[{"name":"columnA"}]}}}}'
     headers:
       cache-control:
       - no-store, no-cache
       content-length:
-      - '684'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
+      - '683'
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:53 GMT
+      - Tue, 22 Jun 2021 05:29:42 GMT
       pragma:
       - no-cache
       server:
@@ -2719,7 +1159,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2727,7 +1167,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2739,30 +1179,25 @@ interactions:
       ParameterSetName:
       - -g -a -k -n --yes
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: DELETE
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Enqueued"}'
     headers:
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/6b97b532-f1a6-40cf-8521-3aafc3b8111c?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/4fd44f75-ad1a-4225-9e5e-c53b49f02094?api-version=2021-06-15
       cache-control:
       - no-store, no-cache
       content-length:
       - '21'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables/cliahcpv7jbjy5i?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:23:55 GMT
+      - Tue, 22 Jun 2021 05:29:42 GMT
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002/operationResults/6b97b532-f1a6-40cf-8521-3aafc3b8111c?api-version=2020-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables/cli000002/operationResults/4fd44f75-ad1a-4225-9e5e-c53b49f02094?api-version=2021-06-15
       pragma:
       - no-cache
       server:
@@ -2772,9 +1207,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
       x-ms-ratelimit-remaining-subscription-deletes:
-      - '14999'
+      - '14997'
     status:
       code: 202
       message: Accepted
@@ -2782,7 +1217,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2792,10 +1227,9 @@ interactions:
       ParameterSetName:
       - -g -a -k -n --yes
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/6b97b532-f1a6-40cf-8521-3aafc3b8111c?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/4fd44f75-ad1a-4225-9e5e-c53b49f02094?api-version=2021-06-15
   response:
     body:
       string: '{"status":"Succeeded"}'
@@ -2804,12 +1238,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '22'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/providers/Microsoft.DocumentDB/locations/westus/operationsStatus/6b97b532-f1a6-40cf-8521-3aafc3b8111c?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:24:26 GMT
+      - Tue, 22 Jun 2021 05:30:13 GMT
       pragma:
       - no-cache
       server:
@@ -2823,7 +1255,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok
@@ -2841,12 +1273,9 @@ interactions:
       ParameterSetName:
       - -g -a -k
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-cosmosdb/0.15.0
-        Azure-SDK-For-Python AZURECLI/2.7.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.25.0 azsdk-python-mgmt-cosmosdb/6.4.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables?api-version=2020-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_cosmosdb_cassandra_table000001/providers/Microsoft.DocumentDB/databaseAccounts/cli000003/cassandraKeyspaces/cli000004/tables?api-version=2021-06-15
   response:
     body:
       string: '{"value":[]}'
@@ -2855,12 +1284,10 @@ interactions:
       - no-store, no-cache
       content-length:
       - '12'
-      content-location:
-      - https://management.documents.azure.com:450/subscriptions/12053b8f-cab5-4f5c-9c1a-870580142abd/resourceGroups/cli_test_cosmosdb_cassandra_tablerba5c24gsin2cvaxw2uzpsfyv3yyw5lqcl4lwm4f52/providers/Microsoft.DocumentDB/databaseAccounts/clilodlxey6hzzn/cassandraKeyspaces/clisjojopaiya4z/tables?api-version=2020-04-01
       content-type:
       - application/json
       date:
-      - Thu, 18 Jun 2020 20:24:28 GMT
+      - Tue, 22 Jun 2021 05:30:13 GMT
       pragma:
       - no-cache
       server:
@@ -2874,7 +1301,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-gatewayversion:
-      - version=2.11.0
+      - version=2.14.0
     status:
       code: 200
       message: Ok

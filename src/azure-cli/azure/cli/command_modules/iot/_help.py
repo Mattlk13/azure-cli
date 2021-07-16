@@ -399,9 +399,12 @@ examples:
   - name: Create an IoT Hub with the free pricing tier F1, in the region of the resource group.
     text: >
         az iot hub create --resource-group MyResourceGroup --name MyIotHub --sku F1 --partition-count 2
-  - name: Create an IoT Hub with the standard pricing tier S1 and 4 partitions, in the 'westus' region.
+  - name: Create an IoT Hub with the standard pricing tier S1 and 4 partitions, in the 'westus' region, with tags.
     text: >
-        az iot hub create --resource-group MyResourceGroup --name MyIotHub --location westus
+        az iot hub create --resource-group MyResourceGroup --name MyIotHub --location westus --tags a=b c=d
+  - name: Create an IoT Hub with a system-assigned managed identity, and assign a role and scope to a storage account for the created identity.
+    text: >
+        az iot hub create --resource-group MyResourceGroup --name MyIotHub --location westus --mi-system-assigned --role "Storage Blob Data Contributor" --scopes {resourceId}
 """
 
 helps['iot hub delete'] = """
@@ -426,6 +429,47 @@ examples:
   - name: Get all the device streams from "MyIotHub" IoT Hub.
     text: >
         az iot hub devicestream show -n MyIotHub
+"""
+
+helps['iot hub identity'] = """
+type: group
+short-summary: Manage identities of an Azure IoT hub.
+"""
+
+helps['iot hub identity assign'] = """
+type: command
+short-summary: Assign managed identities to an IoT Hub
+examples:
+  - name: Assign user-assigned managed identities to an IoT Hub
+    text: >
+        az iot hub identity assign --name MyIoTHub --resource-group MyResourceGroup --user-assigned {resourceId1} {resourceId2}
+  - name: Assign a system-assigned managed identity to an IoT Hub and assign a role to that identity.
+    text: >
+        az iot hub identity assign --name MyIoTHub --resource-group MyResourceGroup --system-assigned --role "Storage Blob Data Contributor" --scopes {resourceId}
+"""
+
+helps['iot hub identity show'] = """
+type: command
+short-summary: Show the identity properties of an IoT Hub
+examples:
+  - name: Show identity properties of an IoT Hub
+    text: >
+        az iot hub identity show --name MyIoTHub --resource-group MyResourceGroup
+"""
+
+helps['iot hub identity remove'] = """
+type: command
+short-summary: Remove managed identities from an IoT Hub
+examples:
+  - name: Remove a user-assigned managed identity from an IoT Hub
+    text: >
+        az iot hub identity remove --name MyIoTHub --resource-group MyResourceGroup --user-assigned {resourceId}
+  - name: Remove a system-assigned managed identity from an IoT Hub.
+    text: >
+        az iot hub identity remove --name MyIoTHub --resource-group MyResourceGroup --system-assigned
+  - name: Remove all identities from an IoT Hub.
+    text: >
+        az iot hub identity remove --name MyIoTHub --resource-group MyResourceGroup --system-assigned --user-assigned
 """
 
 helps['iot hub list'] = """
@@ -653,9 +697,9 @@ examples:
         --endpoint-subscription-id {SubscriptionId} --connection-string {ConnectionString} \\
         --container-name {ContainerName} --batch-frequency 100 --chunk-size 100 \\
         --ff {iothub}-{partition}-{YYYY}-{MM}-{DD}-{HH}-{mm}
-  - name: Add a new identity-based EventHub endpoint named "EventHubIdentity"
+  - name: Add a new identity-based EventHub endpoint named "EventHubIdentity" and authenticate using a user-assigned managed identity
     text: >
-        az iot hub routing-endpoint create --resource-group MyResourceGroup --hub-name MyIotHub --endpoint-name EventHubIdentity --endpoint-type eventhub --endpoint-resource-group {ResourceGroup} --endpoint-subscription-id {SubscriptionId} --auth-type identityBased --endpoint-uri {EventHubEndpointUri} --entity-path {EntityPath}
+        az iot hub routing-endpoint create --resource-group MyResourceGroup --hub-name MyIotHub --endpoint-name EventHubIdentity --endpoint-type eventhub --endpoint-resource-group {ResourceGroup} --endpoint-subscription-id {SubscriptionId} --auth-type identityBased --identity {userIdentityResourceId} --endpoint-uri {EventHubEndpointUri} --entity-path {EntityPath}
 """
 
 helps['iot hub routing-endpoint delete'] = """
@@ -764,178 +808,106 @@ examples:
     text: |
         az iot hub update --name MyIotHub --set properties.allocationPolicy="GeoLatency"
     crafted: true
-"""
-
-helps['iot pnp'] = """
-type: group
-short-summary: Manage IoT Plug and Play repositories and repository access keys.
-"""
-
-helps['iot pnp key'] = """
-type: group
-short-summary: Manage access keys to an IoT Plug and Play repository.
-"""
-
-helps['iot pnp key create'] = """
-type: command
-short-summary: Create a key for the given repository.
-examples:
-  - name: Create a key for the given repository.
+  - name: Update units of an IoT Hub to 2 and add tags
     text: >
-        az iot pnp key create -r aaaabbbb11112222aaaabbbb1111222 --role Reader
-"""
-
-helps['iot pnp key delete'] = """
-type: command
-short-summary: Delete a key from the given repository.
-examples:
-  - name: Delete a key from the given repository.
+        az iot hub update -n MyIotHub --unit 2 --tags a=b c=d
+  - name: Update pricing tier for an IoT Hub as S2
     text: >
-        az iot pnp key delete -r aaaabbbb11112222aaaabbbb1111222 -k 12345
-"""
-
-helps['iot pnp key list'] = """
-type: command
-short-summary: List repository's keys.
-examples:
-  - name: List repository's keys.
+        az iot hub update -n MyIotHub --sku S2
+  - name: Update the retention days of IoT Hub device-to-cloud events as 3 days
     text: >
-        az iot pnp key list -r aaaabbbb11112222aaaabbbb1111222
-"""
-
-helps['iot pnp key show'] = """
-type: command
-short-summary: Get the details of a repository key.
-examples:
-  - name: Get the details of a repository key.
+        az iot hub update -n MyIotHub --retention-day 3
+  - name: Update the IoT Hub cloud-to-device messaging settings
     text: >
-        az iot pnp key show -r aaaabbbb11112222aaaabbbb1111222 -k 12345
-"""
-
-helps['iot pnp key update'] = """
-type: command
-short-summary: Update the key for the given repository.
-examples:
-  - name: Update the key for the given repository.
+        az iot hub update --name MyIotHub --c2d-max-delivery-count 30 --c2d-ttl 5
+  - name: Update the IoT Hub feedback queue settings
     text: >
-        az iot pnp key update -r aaaabbbb11112222aaaabbbb1111222 -k 12345 --role admin
-"""
-
-helps['iot pnp repository'] = """
-type: group
-short-summary: Manage IoT Plug and Play repositories.
-"""
-
-helps['iot pnp repository create'] = """
-type: command
-short-summary: Create an IoT Plug and Play repository.
-examples:
-  - name: Create a new IoT Plug and Play repository "myrepo"
+        az iot hub update --name MyIoTHub --feedback-max-delivery-count 20 --feedback-lock-duration 100 --feedback-ttl 4
+  - name: Update the IoT Hub file upload settings, and assign a managed identity to user for file upload
     text: >
-        az iot pnp repository create -n myrepo
-"""
-
-helps['iot pnp repository delete'] = """
-type: command
-short-summary: Delete an IoT Plug and Play repository.
-examples:
-  - name: Delete an IoT Plug and Play repository.
+        az iot hub update -n MyIoTHub --fileupload-sas-ttl 5 --fileupload-storage-auth-type identityBased --fileupload-storage-identity [system]
+  - name: Update the IoT Hub file upload notification settings
     text: >
-        az iot pnp repository delete -r aaaabbbb11112222aaaabbbb1111222
-"""
-
-helps['iot pnp repository get-provision-status'] = """
-type: command
-short-summary: Returns the IoT Plug and Play repository provisioning status.
-examples:
-  - name: Returns the IoT Plug and Play repository provisioning status.
-    text: >
-        az iot pnp repository get-provision-status -r aaaabbbb11112222aaaabbbb1111222 -s aaaabbbb11112222aaaabbbb1111333
-"""
-
-helps['iot pnp repository list'] = """
-type: command
-short-summary: List IoT Plug and Play repositories.
-examples:
-  - name: List IoT Plug and Play repositories.
-    text: >
-        az iot pnp repository list
-"""
-
-helps['iot pnp repository show'] = """
-type: command
-short-summary: Gets the details for an IoT Plug and Play repository.
-examples:
-  - name: Gets the details for an IoT Plug and Play repository.
-    text: >
-        az iot pnp repository show -r aaaabbbb11112222aaaabbbb1111222
-"""
-
-helps['iot pnp repository update'] = """
-type: command
-short-summary: Update an IoT Plug and Play repository.
-examples:
-  - name: Update an IoT Plug and Play repository.
-    text: >
-        az iot pnp repository update -r aaaabbbb11112222aaaabbbb1111222 -n updatedreponame
+        az iot hub update -n MyIoTHub --fileupload-notification-max-delivery-count 50
+        --fileupload-notification-ttl 48 --fileupload-notifications
 """
 
 helps['iot central'] = """
 type: group
-short-summary: Manage IoT Central assets.
+short-summary: Manage IoT Central resources.
+long-summary: |
+    IoT Central is an IoT application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with IoT Central gives you the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
+    IoT Central documentation is available at https://aka.ms/iotcentral-documentation
+    Comprehensive IoT Central data-plane functionality is available in the Azure IoT CLI Extension. For more info on how to install visit https://github.com/Azure/azure-iot-cli-extension
 """
 
 helps['iot central app'] = """
 type: group
 short-summary: Manage IoT Central applications.
+long-summary: Create, delete, view, and update your IoT Central apps.
 """
 
 helps['iot central app create'] = """
 type: command
 short-summary: Create an IoT Central application.
 long-summary: |
-    For an introduction to IoT Central, see https://docs.microsoft.com/azure/iot-central/.
-    The F1 Sku is no longer supported. Please use the ST2 Sku (default) for app creation.
-    For more pricing information, please visit https://azure.microsoft.com/pricing/details/iot-central/.
+    An IoT Central app is a cloud-based application that you can use to manage your IoT devices.
+    For more information on deploying an IoT Central app via CLI or a list of available arguments, visit https://aka.ms/iotcentral-manage-cli
 examples:
-  - name: Create an IoT Central application in the standard pricing tier ST2, in the region of the resource group.
+  - name: Create an IoT Central application in the region of the resource group using the default pricing SKU.
     text: >
-        az iot central app create --resource-group MyResourceGroup --name my-app-resource --subdomain my-app-subdomain
-  - name: Create an IoT Central application with the standard pricing tier ST2 in the 'westus' region, with a custom display name, based on the iotc-pnp-preview template.
+        az iot central app create -n my-first-iot-app -g MyResourceGroup -s my-iot-app -l unitedstates
+  - name: Create an IoT Central application the in the 'United States' region with the 'ST1' pricing plan and an industry template.
     text: >
-        az iot central app create --resource-group MyResourceGroup --name my-app-resource-name --sku ST2 --location westus --subdomain my-app-subdomain --template iotc-pnp-preview --display-name 'My Custom Display Name'
+        az iot central app create -n my-first-iot-app -g MyResourceGroup -s my-iot-app -l unitedstates -p ST1 -t iotc-distribution
 """
 
 helps['iot central app delete'] = """
 type: command
 short-summary: Delete an IoT Central application.
+long-summary: |
+    Permanently delete your IoT Central app.
+    -Warning- This operation is irreversible. Once you've deleted your app, you cannot restore it.
 examples:
-  - name: Delete an IoT Central application.
-    text: az iot central app delete --name MyIoTCentralApplication --resource-group MyResourceGroup
+  - name: Delete an IoT Central app called 'my-first-iot-app'.
+    text: az iot central app delete -n my-first-iot-app -g MyResourceGroup
 """
 
 helps['iot central app list'] = """
 type: command
 short-summary: List IoT Central applications.
+long-summary: All of the IoT Central apps that are part of your subscription.
 examples:
-  - name: List all IoT Central applications in a subscription.
+  - name: List all IoT Central apps in my subscription.
     text: >
         az iot central app list
-  - name: List all IoT Central applications in the resource group 'MyGroup'
+  - name: List all IoT Central apps in the resource group 'MyResourceGroup' within my subscription.
     text: >
-        az iot central app list --resource-group MyGroup
+        az iot central app list -g MyResourceGroup
 """
 
 helps['iot central app show'] = """
 type: command
 short-summary: Get the details of an IoT Central application.
+long-summary: Information about your app, like app name, subdomain, pricing plan, and location.
 examples:
-  - name: Show an IoT Central application.
+  - name: Show details for an app named 'my-first-iot-app'.
     text: >
-        az iot central app show --name MyApp
+        az iot central app show -n my-first-iot-app
+  - name: Show details for an app named 'my-first-iot-app' in the resource group 'MyResourceGroup'.
+    text: >
+        az iot central app show -n my-first-iot-app -g MyResourceGroup
 """
 
 helps['iot central app update'] = """
 type: command
 short-summary: Update metadata for an IoT Central application.
+long-summary: Update metadata, like app name, subdomain, pricing plan, and location.
+examples:
+  - name: Update the SKU for 'my-first-iot-app'
+    text: >
+        az iot central app update -n my-first-iot-app -g MyResourceGroup --set sku.name=ST1
+  - name: Change the subdomain for 'my-first-iot-app'
+    text: >
+        az iot central app update -n my-first-iot-app -g MyResourceGroup --set subdomain.name=my-iot-app-new
 """

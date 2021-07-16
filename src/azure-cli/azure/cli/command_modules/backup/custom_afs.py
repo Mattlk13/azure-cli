@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
-
+from datetime import datetime, timedelta, timezone
 import azure.cli.command_modules.backup.custom_help as helper
 # pylint: disable=import-error
 # pylint: disable=unused-argument
@@ -17,7 +17,8 @@ from azure.mgmt.recoveryservicesbackup.models import ProtectedItemResource, \
 from azure.cli.core.util import CLIError
 from azure.cli.command_modules.backup._client_factory import protection_containers_cf, protectable_containers_cf, \
     protection_policies_cf, backup_protection_containers_cf, backup_protectable_items_cf, \
-    resources_cf
+    resources_cf, backup_protected_items_cf
+from azure.cli.core.azclierror import ArgumentUsageError
 
 fabric_name = "Azure"
 backup_management_type = "AzureStorage"
@@ -26,27 +27,33 @@ workload_type = "AzureFileShare"
 
 def enable_for_AzureFileShare(cmd, client, resource_group_name, vault_name, afs_name,
                               storage_account_name, policy_name):
-    # refresh containers in the vault
-    protection_containers_client = protection_containers_cf(cmd.cli_ctx)
-    filter_string = helper.get_filter_string({
-        'backupManagementType': "AzureStorage"})
-
-    refresh_result = protection_containers_client.refresh(vault_name, resource_group_name, fabric_name,
-                                                          filter=filter_string, raw=True)
-    helper.track_refresh_operation(cmd.cli_ctx, refresh_result, vault_name, resource_group_name)
 
     # get registered storage accounts
     storage_account = None
     containers_client = backup_protection_containers_cf(cmd.cli_ctx)
     registered_containers = common.list_containers(containers_client, resource_group_name, vault_name, "AzureStorage")
     storage_account = _get_storage_account_from_list(registered_containers, storage_account_name)
+
     # get unregistered storage accounts
     if storage_account is None:
         unregistered_containers = list_protectable_containers(cmd.cli_ctx, resource_group_name, vault_name)
         storage_account = _get_storage_account_from_list(unregistered_containers, storage_account_name)
 
         if storage_account is None:
-            raise CLIError("Storage account not found or not supported.")
+            # refresh containers in the vault
+            protection_containers_client = protection_containers_cf(cmd.cli_ctx)
+            filter_string = helper.get_filter_string({'backupManagementType': "AzureStorage"})
+
+            refresh_result = protection_containers_client.refresh(vault_name, resource_group_name, fabric_name,
+                                                                  filter=filter_string, raw=True)
+            helper.track_refresh_operation(cmd.cli_ctx, refresh_result, vault_name, resource_group_name)
+
+            # refetch the protectable containers after refresh
+            unregistered_containers = list_protectable_containers(cmd.cli_ctx, resource_group_name, vault_name)
+            storage_account = _get_storage_account_from_list(unregistered_containers, storage_account_name)
+
+            if storage_account is None:
+                raise CLIError("Storage account not found or not supported.")
 
         # register storage account
         protection_containers_client = protection_containers_cf(cmd.cli_ctx)
@@ -58,10 +65,22 @@ def enable_for_AzureFileShare(cmd, client, resource_group_name, vault_name, afs_
                                                        storage_account.name, param, raw=True)
         helper.track_register_operation(cmd.cli_ctx, result, vault_name, resource_group_name, storage_account.name)
 
-    policy = common.show_policy(protection_policies_cf(cmd.cli_ctx), resource_group_name, vault_name, policy_name)
-
     protectable_item = _get_protectable_item_for_afs(cmd.cli_ctx, vault_name, resource_group_name, afs_name,
                                                      storage_account)
+
+    if protectable_item is None:
+        items_client = backup_protected_items_cf(cmd.cli_ctx)
+        item = common.show_item(cmd, items_client, resource_group_name, vault_name, storage_account_name,
+                                afs_name, "AzureStorage")
+        if item is None:
+            raise CLIError(
+                "Could not find a fileshare with name " + afs_name +
+                " to protect or a protected fileshare of name " + afs_name)
+        return item
+    policy = common.show_policy(protection_policies_cf(cmd.cli_ctx), resource_group_name, vault_name, policy_name)
+    helper.validate_policy(policy)
+
+    helper.validate_azurefileshare_item(protectable_item)
 
     container_uri = helper.get_protection_container_uri_from_id(protectable_item.id)
     item_uri = helper.get_protectable_item_uri_from_id(protectable_item.id)
@@ -77,6 +96,10 @@ def enable_for_AzureFileShare(cmd, client, resource_group_name, vault_name, afs_
 
 
 def backup_now(cmd, client, resource_group_name, vault_name, item, retain_until):
+
+    if retain_until is None:
+        retain_until = datetime.now(timezone.utc) + timedelta(days=30)
+
     container_uri = helper.get_protection_container_uri_from_id(item.id)
     item_uri = helper.get_protected_item_uri_from_id(item.id)
     trigger_backup_request = _get_backup_request(retain_until)
@@ -95,19 +118,20 @@ def _get_backup_request(retain_until):
 def _get_protectable_item_for_afs(cli_ctx, vault_name, resource_group_name, afs_name, storage_account):
     storage_account_name = storage_account.name
     protection_containers_client = protection_containers_cf(cli_ctx)
+
     protectable_item = _try_get_protectable_item_for_afs(cli_ctx, vault_name, resource_group_name,
                                                          afs_name, storage_account_name)
-    filter_string = helper.get_filter_string({
-        'workloadType': "AzureFileShare"})
 
     if protectable_item is None:
+
+        filter_string = helper.get_filter_string({'workloadType': "AzureFileShare"})
         result = protection_containers_client.inquire(vault_name, resource_group_name, fabric_name,
                                                       storage_account.name, filter=filter_string, raw=True)
 
         helper.track_inquiry_operation(cli_ctx, result, vault_name, resource_group_name, storage_account.name)
 
-    protectable_item = _try_get_protectable_item_for_afs(cli_ctx, vault_name, resource_group_name, afs_name,
-                                                         storage_account_name)
+        protectable_item = _try_get_protectable_item_for_afs(cli_ctx, vault_name, resource_group_name, afs_name,
+                                                             storage_account_name)
     return protectable_item
 
 
@@ -180,12 +204,32 @@ def restore_AzureFileShare(cmd, client, resource_group_name, vault_name, rp_name
 
     result = client.trigger(vault_name, resource_group_name, fabric_name,
                             container_uri, item_uri, rp_name,
-                            trigger_restore_request, raw=True)
+                            trigger_restore_request, raw=True, polling=False).result()
 
     return helper.track_backup_job(cmd.cli_ctx, result, vault_name, resource_group_name)
 
 
-def list_recovery_points(client, resource_group_name, vault_name, item, start_date=None, end_date=None):
+def list_recovery_points(cmd, client, resource_group_name, vault_name, item, start_date=None, end_date=None,
+                         use_secondary_region=None, is_ready_for_move=None, target_tier=None, tier=None,
+                         recommended_for_archive=None):
+    if use_secondary_region:
+        raise ArgumentUsageError(
+            """
+            --use-secondary-region flag is not supported for --backup-management-type AzureStorage.
+            Please either remove the flag or query for any other backup-management-type.
+            """)
+
+    if is_ready_for_move is not None or target_tier is not None or tier is not None:
+        raise ArgumentUsageError("""Invalid argument has been passed. --is-ready-for-move true, --target-tier
+        and --tier flags are not supported for --backup-management-type AzureStorage.""")
+
+    if recommended_for_archive is not None:
+        raise ArgumentUsageError("""--recommended-for-archive is supported by AzureIaasVM backup management
+        type only.""")
+
+    if cmd.name.split()[2] == 'show-log-chain':
+        raise ArgumentUsageError("show-log-chain is supported by AzureWorkload backup management type only.")
+
     # Get container and item URIs
     container_uri = helper.get_protection_container_uri_from_id(item.id)
     item_uri = helper.get_protected_item_uri_from_id(item.id)

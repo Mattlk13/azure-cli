@@ -81,6 +81,10 @@ def cf_snapshots(cli_ctx, _):
     return _compute_client_factory(cli_ctx).snapshots
 
 
+def cf_disk_accesses(cli_ctx, _):
+    return _compute_client_factory(cli_ctx).disk_accesses
+
+
 def cf_images(cli_ctx, _):
     return _compute_client_factory(cli_ctx).images
 
@@ -137,8 +141,10 @@ def cf_log_analytics_data_plane(cli_ctx, _):
     from azure.cli.core._profile import Profile
     profile = Profile(cli_ctx=cli_ctx)
     cred, _, _ = profile.get_login_credentials(
-        resource="https://api.loganalytics.io")
-    return LogAnalyticsDataClient(cred)
+        resource=cli_ctx.cloud.endpoints.log_analytics_resource_id)
+    api_version = 'v1'
+    return LogAnalyticsDataClient(cred,
+                                  base_url=cli_ctx.cloud.endpoints.log_analytics_resource_id + '/' + api_version)
 
 
 def cf_disk_encryption_set(cli_ctx, _):
@@ -149,3 +155,26 @@ def _dev_test_labs_client_factory(cli_ctx, subscription_id, *_):
     from azure.mgmt.devtestlabs import DevTestLabsClient
     from azure.cli.core.commands.client_factory import get_mgmt_service_client
     return get_mgmt_service_client(cli_ctx, DevTestLabsClient, subscription_id=subscription_id)
+
+
+def cf_vm_cl(cli_ctx, *_):
+    from azure.cli.core.commands.client_factory import get_mgmt_service_client
+    from azure.mgmt.compute import ComputeManagementClient
+    return get_mgmt_service_client(cli_ctx,
+                                   ComputeManagementClient)
+
+
+def cf_shared_galleries(cli_ctx, *_):
+    return cf_vm_cl(cli_ctx).shared_galleries
+
+
+def cf_gallery_sharing_profile(cli_ctx, *_):
+    return cf_vm_cl(cli_ctx).gallery_sharing_profile
+
+
+def cf_shared_gallery_image(cli_ctx, *_):
+    return cf_vm_cl(cli_ctx).shared_gallery_images
+
+
+def cf_shared_gallery_image_version(cli_ctx, *_):
+    return cf_vm_cl(cli_ctx).shared_gallery_image_versions

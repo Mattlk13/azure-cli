@@ -3,12 +3,11 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-# pylint: disable=line-too-long,too-many-nested-blocks
+# pylint: disable=line-too-long,too-many-nested-blocks,too-many-lines
 
 import io
 import json
 import re
-import sys
 
 import chardet
 import javaproperties
@@ -16,13 +15,14 @@ import yaml
 from jsondiff import JsonDiffer
 from knack.log import get_logger
 from knack.util import CLIError
+from azure.appconfiguration import ResourceReadOnlyError
+from azure.core.exceptions import HttpResponseError
+from azure.cli.core.util import user_confirmation
 
-from ._constants import FeatureFlagConstants, KeyVaultConstants
-from ._utils import resolve_connection_string, user_confirmation
-from ._azconfig.azconfig_client import AzconfigClient
-from ._azconfig.models import (KeyValue,
-                               ModifyKeyValueOptions,
-                               QueryKeyValueCollectionOptions)
+from ._constants import (FeatureFlagConstants, KeyVaultConstants)
+from ._utils import prep_label_filter_for_url_encoding
+from ._models import (KeyValue, convert_configurationsetting_to_keyvalue,
+                      convert_keyvalue_to_configurationsetting, QueryFields)
 from._featuremodels import (map_keyvalue_to_featureflag,
                             map_featureflag_to_keyvalue,
                             FeatureFlagValue)
@@ -32,7 +32,7 @@ FEATURE_MANAGEMENT_KEYWORDS = ["FeatureManagement", "featureManagement", "featur
 ENABLED_FOR_KEYWORDS = ["EnabledFor", "enabledFor", "enabled_for", "enabled-for"]
 
 
-class FeatureManagementReservedKeywords(object):
+class FeatureManagementReservedKeywords:
     '''
     Feature management keywords used in files in different naming conventions.
 
@@ -121,49 +121,91 @@ def validate_import_feature(feature):
 
 # File <-> List of KeyValue object
 
-
-def __read_kv_from_file(file_path, format_, separator=None, prefix_to_add="", depth=None):
+def __read_with_appropriate_encoding(file_path, format_):
     config_data = {}
+    default_encoding = 'utf-8'
+    detected_encoding = __check_file_encoding(file_path)
+
     try:
-        with io.open(file_path, 'r', encoding=__check_file_encoding(file_path)) as config_file:
+        with io.open(file_path, 'r', encoding=default_encoding) as config_file:
             if format_ == 'json':
                 config_data = json.load(config_file)
-                for feature_management_keyword in FEATURE_MANAGEMENT_KEYWORDS:
-                    # delete all feature management sections in any name format.
-                    # If users have not skipped features, and there are multiple
-                    # feature sections, we will error out while reading features.
-                    if feature_management_keyword in config_data:
-                        del config_data[feature_management_keyword]
 
             elif format_ == 'yaml':
                 for yaml_data in list(yaml.safe_load_all(config_file)):
                     config_data.update(yaml_data)
-                for feature_management_keyword in FEATURE_MANAGEMENT_KEYWORDS:
-                    # delete all feature management sections in any name format.
-                    # If users have not skipped features, and there are multiple
-                    # feature sections, we will error out while reading features.
-                    if feature_management_keyword in config_data:
-                        del config_data[feature_management_keyword]
 
             elif format_ == 'properties':
                 config_data = javaproperties.load(config_file)
                 logger.debug("Importing feature flags from a properties file is not supported. If properties file contains feature flags, they will be imported as regular key-values.")
 
-    except ValueError:
-        raise CLIError('The input is not a well formatted %s file.' % (format_))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        if detected_encoding == default_encoding:
+            raise
+
+        with io.open(file_path, 'r', encoding=detected_encoding) as config_file:
+            if format_ == 'json':
+                config_data = json.load(config_file)
+
+            elif format_ == 'yaml':
+                for yaml_data in list(yaml.safe_load_all(config_file)):
+                    config_data.update(yaml_data)
+
+            elif format_ == 'properties':
+                config_data = javaproperties.load(config_file)
+                logger.debug("Importing feature flags from a properties file is not supported. If properties file contains feature flags, they will be imported as regular key-values.")
+
+    return config_data
+
+
+def __read_kv_from_file(file_path,
+                        format_,
+                        separator=None,
+                        prefix_to_add="",
+                        depth=None,
+                        content_type=None):
+    config_data = {}
+    try:
+        config_data = __read_with_appropriate_encoding(file_path, format_)
+        if format_ in ('json', 'yaml'):
+            for feature_management_keyword in FEATURE_MANAGEMENT_KEYWORDS:
+                # delete all feature management sections in any name format.
+                # If users have not skipped features, and there are multiple
+                # feature sections, we will error out while reading features.
+                if feature_management_keyword in config_data:
+                    del config_data[feature_management_keyword]
+    except ValueError as ex:
+        raise CLIError('The input is not a well formatted %s file.\nException: %s' % (format_, ex))
+    except yaml.YAMLError as ex:
+        raise CLIError('The input is not a well formatted YAML file.\nException: %s' % (ex))
     except OSError:
         raise CLIError('File is not available.')
+
     flattened_data = {}
-    index = 0
-    is_list = isinstance(config_data, list)
-    for key in config_data:
-        if is_list:
-            __flatten_key_value(prefix_to_add + str(index), key, flattened_data,
-                                sys.maxsize if depth is None else int(depth), separator)
-            index += 1
-        else:
-            __flatten_key_value(
-                prefix_to_add + key, config_data[key], flattened_data, sys.maxsize if depth is None else int(depth), separator)
+    if format_ == 'json' and content_type and __is_json_content_type(content_type):
+        for key in config_data:
+            __flatten_json_key_value(key=prefix_to_add + key,
+                                     value=config_data[key],
+                                     flattened_data=flattened_data,
+                                     depth=depth,
+                                     separator=separator)
+    else:
+        index = 0
+        is_list = isinstance(config_data, list)
+        for key in config_data:
+            if is_list:
+                __flatten_key_value(key=prefix_to_add + str(index),
+                                    value=key,
+                                    flattened_data=flattened_data,
+                                    depth=depth,
+                                    separator=separator)
+                index += 1
+            else:
+                __flatten_key_value(key=prefix_to_add + key,
+                                    value=config_data[key],
+                                    flattened_data=flattened_data,
+                                    depth=depth,
+                                    separator=separator)
 
     # convert to KeyValue list
     key_values = []
@@ -184,17 +226,10 @@ def __read_features_from_file(file_path, format_):
         return features_dict
 
     try:
-        with io.open(file_path, 'r', encoding=__check_file_encoding(file_path)) as config_file:
-            if format_ == 'json':
-                config_data = json.load(config_file)
-
-            elif format_ == 'yaml':
-                for yaml_data in list(yaml.safe_load_all(config_file)):
-                    config_data.update(yaml_data)
-
+        config_data = __read_with_appropriate_encoding(file_path, format_)
         found_feature_section = False
         for index, feature_management_keyword in enumerate(FEATURE_MANAGEMENT_KEYWORDS):
-            # find the first occurence of feature management section in file.
+            # find the first occurrence of feature management section in file.
             # Enforce the same naming convention for 'EnabledFor' keyword
             # If there are multiple feature sections, we will error out here.
             if feature_management_keyword in config_data:
@@ -205,9 +240,11 @@ def __read_features_from_file(file_path, format_):
                 else:
                     raise CLIError('Unable to proceed because file contains multiple sections corresponding to "Feature Management".')
 
-    except ValueError:
+    except ValueError as ex:
         raise CLIError(
-            'The feature management section of input is not a well formatted %s file.' % (format_))
+            'The feature management section of input is not a well formatted %s file.\nException: %s' % (format_, ex))
+    except yaml.YAMLError as ex:
+        raise CLIError('The feature management section of input is not a well formatted YAML file.\nException: %s' % (ex))
     except OSError:
         raise CLIError('File is not available.')
 
@@ -226,7 +263,7 @@ def __write_kv_and_features_to_file(file_path, key_values=None, features=None, f
             if format_ == 'json':
                 json.dump(exported_keyvalues, fp, indent=2, ensure_ascii=False)
             elif format_ == 'yaml':
-                yaml.safe_dump(exported_keyvalues, fp, sort_keys=False)
+                yaml.safe_dump(exported_keyvalues, fp, sort_keys=False, width=float('inf'))
             elif format_ == 'properties':
                 javaproperties.dump(exported_keyvalues, fp)
     except Exception as exception:
@@ -235,102 +272,125 @@ def __write_kv_and_features_to_file(file_path, key_values=None, features=None, f
 
 # Config Store <-> List of KeyValue object
 
-def __read_kv_from_config_store(cmd,
-                                name=None,
-                                connection_string=None,
+def __read_kv_from_config_store(azconfig_client,
                                 key=None,
                                 label=None,
                                 datetime=None,
                                 fields=None,
                                 top=None,
                                 all_=True,
-                                resolve_keyvault=False,
+                                cli_ctx=None,
                                 prefix_to_remove="",
                                 prefix_to_add=""):
-    connection_string = resolve_connection_string(cmd, name, connection_string)
-    azconfig_client = AzconfigClient(connection_string)
 
-    query_option = QueryKeyValueCollectionOptions(key_filter=key,
-                                                  label_filter=label if label else QueryKeyValueCollectionOptions.empty_label,
-                                                  query_datetime=datetime,
-                                                  fields=fields)
+    # list_configuration_settings returns kv with null label when:
+    # label = ASCII null 0x00 (or URL encoded %00)
+    # In delete, import & export commands, we treat missing --label as null label
+    # In list, restore & list_revision commands, we treat missing --label as all labels
+
+    label = prep_label_filter_for_url_encoding(label)
+
+    query_fields = []
+    if fields:
+        # Create list of string field names from QueryFields list
+        for field in fields:
+            if field == QueryFields.ALL:
+                query_fields.clear()
+                break
+            query_fields.append(field.name.lower())
+
     try:
-        keyvalue_iterable = azconfig_client.get_keyvalues(query_option)
-        retrieved_kvs = []
-        count = 0
+        configsetting_iterable = azconfig_client.list_configuration_settings(key_filter=key,
+                                                                             label_filter=label,
+                                                                             accept_datetime=datetime,
+                                                                             fields=query_fields)
+    except HttpResponseError as exception:
+        raise CLIError('Failed to read key-value(s) that match the specified key and label. ' + str(exception))
 
-        if all_:
-            top = float('inf')
-        elif top is None:
-            top = 100
+    retrieved_kvs = []
+    count = 0
 
-        keyvault_client = __get_keyvault_client(cmd.cli_ctx) if resolve_keyvault else None
+    if all_:
+        top = float('inf')
+    elif top is None:
+        top = 100
 
-        for kv in keyvalue_iterable:
-            if kv.key:
-                # remove prefix if specified
-                if kv.key.startswith(prefix_to_remove):
-                    kv.key = kv.key[len(prefix_to_remove):]
+    if cli_ctx:
+        from azure.cli.command_modules.keyvault._client_factory import keyvault_data_plane_factory
+        keyvault_client = keyvault_data_plane_factory(cli_ctx)
+    else:
+        keyvault_client = None
 
-                # add prefix if specified
-                kv.key = prefix_to_add + kv.key
+    for setting in configsetting_iterable:
+        kv = convert_configurationsetting_to_keyvalue(setting)
 
-                if kv.content_type and kv.value:
-                    # resolve key vault reference
-                    if keyvault_client and kv.content_type == KeyVaultConstants.KEYVAULT_CONTENT_TYPE:
-                        __resolve_secret(keyvault_client, kv)
+        if kv.key:
+            # remove prefix if specified
+            if kv.key.startswith(prefix_to_remove):
+                kv.key = kv.key[len(prefix_to_remove):]
 
-            # trim unwanted fields from kv object instead of leaving them as null.
-            if fields:
-                partial_kv = {}
-                for field in fields:
-                    partial_kv[field.name.lower()] = kv.__dict__[
-                        field.name.lower()]
-                retrieved_kvs.append(partial_kv)
-            else:
-                retrieved_kvs.append(kv)
-            count += 1
-            if count >= top:
-                return retrieved_kvs
-        return retrieved_kvs
-    except Exception as exception:
-        raise CLIError(str(exception))
+            # add prefix if specified
+            kv.key = prefix_to_add + kv.key
+
+            if kv.content_type and kv.value:
+                # resolve key vault reference
+                if keyvault_client and __is_key_vault_ref(kv):
+                    __resolve_secret(keyvault_client, kv)
+
+        # trim unwanted fields from kv object instead of leaving them as null.
+        if fields:
+            partial_kv = {}
+            for field in fields:
+                partial_kv[field.name.lower()] = kv.__dict__[field.name.lower()]
+            retrieved_kvs.append(partial_kv)
+        else:
+            retrieved_kvs.append(kv)
+        count += 1
+        if count >= top:
+            return retrieved_kvs
+    return retrieved_kvs
 
 
-def __write_kv_and_features_to_config_store(cmd,
+def __write_kv_and_features_to_config_store(azconfig_client,
                                             key_values,
                                             features=None,
-                                            name=None,
-                                            connection_string=None,
                                             label=None,
                                             preserve_labels=False,
                                             content_type=None):
     if not key_values and not features:
         return
-    try:
-        # write all keyvalues to target store
-        connection_string = resolve_connection_string(
-            cmd, name, connection_string)
-        azconfig_client = AzconfigClient(connection_string)
-        if features:
-            key_values.extend(__convert_featureflag_list_to_keyvalue_list(features))
 
-        for kv in key_values:
-            if not preserve_labels:
-                kv.label = label
-            if content_type:
-                kv.content_type = content_type
+    # write all keyvalues to target store
+    if features:
+        key_values.extend(__convert_featureflag_list_to_keyvalue_list(features))
 
-            azconfig_client.set_keyvalue(kv, ModifyKeyValueOptions())
+    for kv in key_values:
+        set_kv = convert_keyvalue_to_configurationsetting(kv)
+        if not preserve_labels:
+            set_kv.label = label
 
-    except Exception as exception:
-        raise CLIError(str(exception))
+        # Don't overwrite the content type of feature flags or key vault references
+        if content_type and not __is_feature_flag(set_kv) and not __is_key_vault_ref(set_kv):
+            set_kv.content_type = content_type
+
+        try:
+            azconfig_client.set_configuration_setting(set_kv)
+        except ResourceReadOnlyError:
+            logger.warning("Failed to set read only key-value with key '%s' and label '%s'. Unlock the key-value before updating it.", set_kv.key, set_kv.label)
+        except HttpResponseError as exception:
+            logger.warning("Failed to set key-value with key '%s' and label '%s'. %s", set_kv.key, set_kv.label, str(exception))
+        except Exception as exception:
+            raise CLIError(str(exception))
 
 
 def __is_feature_flag(kv):
     if kv and kv.key and kv.content_type:
         return kv.key.startswith(FeatureFlagConstants.FEATURE_FLAG_PREFIX) and kv.content_type == FeatureFlagConstants.FEATURE_FLAG_CONTENT_TYPE
     return False
+
+
+def __is_key_vault_ref(kv):
+    return kv and kv.content_type and kv.content_type.lower() == KeyVaultConstants.KEYVAULT_CONTENT_TYPE
 
 
 def __discard_features_from_retrieved_kv(src_kvs):
@@ -342,7 +402,7 @@ def __discard_features_from_retrieved_kv(src_kvs):
 
 # App Service <-> List of KeyValue object
 
-def __read_kv_from_app_service(cmd, appservice_account, prefix_to_add=""):
+def __read_kv_from_app_service(cmd, appservice_account, prefix_to_add="", content_type=None):
     try:
         key_values = []
         from azure.cli.command_modules.appservice.custom import get_app_settings
@@ -388,11 +448,19 @@ def __read_kv_from_app_service(cmd, appservice_account, prefix_to_add=""):
                         logger.debug(
                             'Key "%s" with value "%s" is not a well-formatted KeyVault reference. It will be treated like a regular key-value.\n%s', key, value, str(e))
 
+                elif content_type and __is_json_content_type(content_type):
+                    # If appservice values are being imported with JSON content type,
+                    # we need to validate that values are in valid JSON format.
+                    try:
+                        json.loads(value)
+                    except ValueError:
+                        raise CLIError('Value "{}" for key "{}" is not a valid JSON object, which conflicts with the provided content type "{}".'.format(value, key, content_type))
+
                 kv = KeyValue(key=key, value=value, tags=tags)
                 key_values.append(kv)
         return key_values
     except Exception as exception:
-        raise CLIError("Failed to read key-values from appservice." + str(exception))
+        raise CLIError("Failed to read key-values from appservice.\n" + str(exception))
 
 
 def __write_kv_to_app_service(cmd, key_values, appservice_account):
@@ -403,7 +471,7 @@ def __write_kv_to_app_service(cmd, key_values, appservice_account):
             name = kv.key
             value = kv.value
             # If its a KeyVault ref, convert the format to AppService KeyVault ref format
-            if kv.content_type and kv.content_type.lower() == KeyVaultConstants.KEYVAULT_CONTENT_TYPE:
+            if __is_key_vault_ref(kv):
                 try:
                     secret_uri = json.loads(value).get("uri")
                     if secret_uri:
@@ -496,6 +564,7 @@ def __serialize_kv_list_to_comparable_json_list(keyvalues):
         kv_json = {'key': kv.key,
                    'value': kv.value,
                    'label': kv.label,
+                   'locked': kv.locked,
                    'last modified': kv.last_modified,
                    'content type': kv.content_type}
         # tags
@@ -529,7 +598,7 @@ def __print_features_preview(old_json, new_json):
     for action, changes in res.items():
         if action.label == 'delete':
             continue  # we do not delete KVs while importing/exporting
-        elif action.label == 'insert':
+        if action.label == 'insert':
             logger.warning('\nAdding:')
             for key, adding in changes.items():
                 record = {'feature': key}
@@ -575,7 +644,7 @@ def __print_preview(old_json, new_json):
     for action, changes in res.items():
         if action.label == 'delete':
             continue  # we do not delete KVs while importing/exporting
-        elif action.label == 'insert':
+        if action.label == 'insert':
             logger.warning('\nAdding:')
             for key, adding in changes.items():
                 record = {'key': key}
@@ -621,6 +690,47 @@ def __print_restore_preview(kvs_to_restore, kvs_to_modify, kvs_to_delete):
     confirmation_message = "Do you want to continue? \n"
     user_confirmation(confirmation_message)
     return True
+
+
+def __is_json_content_type(content_type):
+    if not content_type:
+        return False
+
+    content_type = content_type.strip().lower()
+    mime_type = content_type.split(';')[0].strip()
+
+    type_parts = mime_type.split('/')
+    if len(type_parts) != 2:
+        return False
+
+    (main_type, sub_type) = type_parts
+    if main_type != "application":
+        return False
+
+    sub_types = sub_type.split('+')
+    if "json" in sub_types:
+        return True
+
+    return False
+
+
+def __flatten_json_key_value(key, value, flattened_data, depth, separator):
+    if depth > 1:
+        depth = depth - 1
+        if value and isinstance(value, dict):
+            if separator is None or not separator:
+                raise CLIError(
+                    "A non-empty separator is required for importing hierarchical configurations.")
+            for nested_key in value:
+                __flatten_json_key_value(
+                    key + separator + nested_key, value[nested_key], flattened_data, depth, separator)
+        else:
+            if key in flattened_data:
+                logger.debug(
+                    "The key %s already exist, value has been overwritten.", key)
+            flattened_data[key] = json.dumps(value)
+    else:
+        flattened_data[key] = json.dumps(value)
 
 
 def __flatten_key_value(key, value, flattened_data, depth, separator):
@@ -698,6 +808,13 @@ def __export_keyvalues(fetched_items, format_, separator, prefix=None):
     try:
         for kv in fetched_items:
             key = kv.key
+            if format_ != 'properties' and __is_json_content_type(kv.content_type):
+                try:
+                    # Convert JSON string value to python object
+                    kv.value = json.loads(kv.value)
+                except ValueError:
+                    logger.debug('Error while converting value "%s" for key "%s" to JSON. Value will be treated as string.', kv.value, kv.key)
+
             if prefix is not None:
                 if not key.startswith(prefix):
                     continue
@@ -869,18 +986,6 @@ def __compact_key_values(key_values):
     return compacted
 
 
-def __get_keyvault_client(cli_ctx):
-    from azure.cli.core._profile import Profile
-    from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
-    from azure.cli.core.profiles import ResourceType, get_api_version
-    version = str(get_api_version(cli_ctx, ResourceType.DATA_KEYVAULT))
-
-    def _get_token(server, resource, scope):  # pylint: disable=unused-argument
-        return Profile(cli_ctx=cli_ctx).get_login_credentials(resource)[0]._token_retriever()  # pylint: disable=protected-access
-
-    return KeyVaultClient(KeyVaultAuthentication(_get_token), api_version=version)
-
-
 def __resolve_secret(keyvault_client, keyvault_reference):
     from azure.keyvault.key_vault_id import SecretId
     try:
@@ -898,7 +1003,7 @@ def __resolve_secret(keyvault_client, keyvault_reference):
         raise CLIError(str(exception))
 
 
-class Undef(object):  # pylint: disable=too-few-public-methods
+class Undef:  # pylint: disable=too-few-public-methods
     '''
     Dummy undef class used to preallocate space for kv exporting.
 

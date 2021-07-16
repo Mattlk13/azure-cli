@@ -13,24 +13,21 @@ interactions:
       ParameterSetName:
       - -n -g --query -o
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-storage/11.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-storage/18.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002?api-version=2019-06-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002?api-version=2021-04-01
   response:
     body:
-      string: '{"sku":{"name":"Standard_LRS","tier":"Standard"},"kind":"Storage","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","name":"clitest000002","type":"Microsoft.Storage/storageAccounts","location":"southcentralus","tags":{},"properties":{"privateEndpointConnections":[],"networkAcls":{"bypass":"AzureServices","virtualNetworkRules":[],"ipRules":[],"defaultAction":"Allow"},"supportsHttpsTrafficOnly":true,"encryption":{"services":{"file":{"keyType":"Account","enabled":true,"lastEnabledTime":"2020-07-01T07:12:54.1303933Z"},"blob":{"keyType":"Account","enabled":true,"lastEnabledTime":"2020-07-01T07:12:54.1303933Z"}},"keySource":"Microsoft.Storage"},"provisioningState":"Succeeded","creationTime":"2020-07-01T07:12:54.0522212Z","primaryEndpoints":{"blob":"https://clitest000002.blob.core.windows.net/","queue":"https://clitest000002.queue.core.windows.net/","table":"https://clitest000002.table.core.windows.net/","file":"https://clitest000002.file.core.windows.net/"},"primaryLocation":"southcentralus","statusOfPrimary":"available"}}'
+      string: '{"sku":{"name":"Standard_LRS","tier":"Standard"},"kind":"Storage","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","name":"clitest000002","type":"Microsoft.Storage/storageAccounts","location":"southcentralus","tags":{},"properties":{"keyCreationTime":{"key1":"2021-06-07T05:10:44.3409132Z","key2":"2021-06-07T05:10:44.3409132Z"},"privateEndpointConnections":[],"networkAcls":{"bypass":"AzureServices","virtualNetworkRules":[],"ipRules":[],"defaultAction":"Allow"},"supportsHttpsTrafficOnly":true,"encryption":{"services":{"file":{"keyType":"Account","enabled":true,"lastEnabledTime":"2021-06-07T05:10:44.3458927Z"},"blob":{"keyType":"Account","enabled":true,"lastEnabledTime":"2021-06-07T05:10:44.3458927Z"}},"keySource":"Microsoft.Storage"},"provisioningState":"Succeeded","creationTime":"2021-06-07T05:10:44.2659573Z","primaryEndpoints":{"blob":"https://clitest000002.blob.core.windows.net/","queue":"https://clitest000002.queue.core.windows.net/","table":"https://clitest000002.table.core.windows.net/","file":"https://clitest000002.file.core.windows.net/"},"primaryLocation":"southcentralus","statusOfPrimary":"available"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '1256'
+      - '1352'
       content-type:
       - application/json
       date:
-      - Wed, 01 Jul 2020 07:13:14 GMT
+      - Mon, 07 Jun 2021 05:11:05 GMT
       expires:
       - '-1'
       pragma:
@@ -49,13 +46,56 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: 'b''b\''{"location": "southcentralus", "properties": {"storageAccountId":
-      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002",
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - monitor diagnostic-settings subscription list
+      Connection:
+      - keep-alive
+      User-Agent:
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-monitor/2.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/diagnosticSettings?api-version=2017-05-01-preview
+  response:
+    body:
+      string: '{"value":[]}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '12'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 07 Jun 2021 05:11:06 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Microsoft-IIS/10.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"location": "southcentralus", "properties": {"storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002",
       "logs": [{"category": "Security", "enabled": true}, {"category": "Administrative",
       "enabled": true}, {"category": "ServiceHealth", "enabled": true}, {"category":
       "Alert", "enabled": true}, {"category": "Recommendation", "enabled": true},
       {"category": "Policy", "enabled": true}, {"category": "Autoscale", "enabled":
-      true}, {"category": "ResourceHealth", "enabled": true}]}}\'''''
+      true}, {"category": "ResourceHealth", "enabled": true}]}}'
     headers:
       Accept:
       - application/json
@@ -68,28 +108,25 @@ interactions:
       Content-Length:
       - '654'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - -l --name --storage-account --logs
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-monitor/0.10.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-monitor/2.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: PUT
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/diagnosticSettings/clitest000003?api-version=2017-05-01-preview
   response:
     body:
-      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":null,"name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true},{"category":"Administrative","enabled":true},{"category":"ServiceHealth","enabled":true},{"category":"Alert","enabled":true},{"category":"Recommendation","enabled":true},{"category":"Policy","enabled":true},{"category":"Autoscale","enabled":true},{"category":"ResourceHealth","enabled":true}]}}'
+      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":"Microsoft.Insights/diagnosticSettings","name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true,"categoryGroup":null},{"category":"Administrative","enabled":true,"categoryGroup":null},{"category":"ServiceHealth","enabled":true,"categoryGroup":null},{"category":"Alert","enabled":true,"categoryGroup":null},{"category":"Recommendation","enabled":true,"categoryGroup":null},{"category":"Policy","enabled":true,"categoryGroup":null},{"category":"Autoscale","enabled":true,"categoryGroup":null},{"category":"ResourceHealth","enabled":true,"categoryGroup":null}]}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '778'
+      - '981'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 01 Jul 2020 07:13:20 GMT
+      - Mon, 07 Jun 2021 05:11:10 GMT
       expires:
       - '-1'
       pragma:
@@ -123,24 +160,21 @@ interactions:
       ParameterSetName:
       - --name
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-monitor/0.10.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-monitor/2.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/diagnosticSettings/clitest000003?api-version=2017-05-01-preview
   response:
     body:
-      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":null,"name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true},{"category":"Administrative","enabled":true},{"category":"ServiceHealth","enabled":true},{"category":"Alert","enabled":true},{"category":"Recommendation","enabled":true},{"category":"Policy","enabled":true},{"category":"Autoscale","enabled":true},{"category":"ResourceHealth","enabled":true}]}}'
+      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":"Microsoft.Insights/diagnosticSettings","name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true,"categoryGroup":null},{"category":"Administrative","enabled":true,"categoryGroup":null},{"category":"ServiceHealth","enabled":true,"categoryGroup":null},{"category":"Alert","enabled":true,"categoryGroup":null},{"category":"Recommendation","enabled":true,"categoryGroup":null},{"category":"Policy","enabled":true,"categoryGroup":null},{"category":"Autoscale","enabled":true,"categoryGroup":null},{"category":"ResourceHealth","enabled":true,"categoryGroup":null}]}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '778'
+      - '981'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 01 Jul 2020 07:13:20 GMT
+      - Mon, 07 Jun 2021 05:11:10 GMT
       expires:
       - '-1'
       pragma:
@@ -170,24 +204,21 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-monitor/0.10.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-monitor/2.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/diagnosticSettings?api-version=2017-05-01-preview
   response:
     body:
-      string: '{"value":[{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":null,"name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true},{"category":"Administrative","enabled":true},{"category":"ServiceHealth","enabled":true},{"category":"Alert","enabled":true},{"category":"Recommendation","enabled":true},{"category":"Policy","enabled":true},{"category":"Autoscale","enabled":true},{"category":"ResourceHealth","enabled":true}]}},{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitestwskpzlmj36lk6","type":null,"name":"clitestwskpzlmj36lk6","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rgp6sozreflu2eei5gi7qwleqbmwq5wk7zgp7mqxaw6vntsl7h3v2mukqjruebyuynv/providers/Microsoft.Storage/storageAccounts/clitestoipbvxjtsv6hvl5yr","logs":[{"category":"Security","enabled":true},{"category":"Administrative","enabled":true},{"category":"ServiceHealth","enabled":true},{"category":"Alert","enabled":true},{"category":"Recommendation","enabled":true},{"category":"Policy","enabled":true},{"category":"Autoscale","enabled":true},{"category":"ResourceHealth","enabled":true}]}}]}'
+      string: '{"value":[{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":"Microsoft.Insights/diagnosticSettings","name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true,"categoryGroup":null},{"category":"Administrative","enabled":true,"categoryGroup":null},{"category":"ServiceHealth","enabled":true,"categoryGroup":null},{"category":"Alert","enabled":true,"categoryGroup":null},{"category":"Recommendation","enabled":true,"categoryGroup":null},{"category":"Policy","enabled":true,"categoryGroup":null},{"category":"Autoscale","enabled":true,"categoryGroup":null},{"category":"ResourceHealth","enabled":true,"categoryGroup":null}]}}]}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '1569'
+      - '993'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 01 Jul 2020 07:13:22 GMT
+      - Mon, 07 Jun 2021 05:11:12 GMT
       expires:
       - '-1'
       pragma:
@@ -219,15 +250,12 @@ interactions:
       ParameterSetName:
       - -n -g --query -o
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.0.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-resource/18.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001?api-version=2019-07-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001?api-version=2020-10-01
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001","name":"clitest.rg000001","type":"Microsoft.Resources/resourceGroups","location":"southcentralus","tags":{"product":"azurecli","cause":"automation","date":"2020-07-01T07:12:46Z"},"properties":{"provisioningState":"Succeeded"}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001","name":"clitest.rg000001","type":"Microsoft.Resources/resourceGroups","location":"southcentralus","tags":{"product":"azurecli","cause":"automation","date":"2021-06-07T05:10:30Z"},"properties":{"provisioningState":"Succeeded"}}'
     headers:
       cache-control:
       - no-cache
@@ -236,7 +264,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 01 Jul 2020 07:13:24 GMT
+      - Mon, 07 Jun 2021 05:11:12 GMT
       expires:
       - '-1'
       pragma:
@@ -265,41 +293,38 @@ interactions:
       Content-Length:
       - '123'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - -n -g --query -o
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-loganalytics/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-mgmt-loganalytics/10.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/Microsoft.OperationalInsights/workspaces/cliws000004?api-version=2020-03-01-preview
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/Microsoft.OperationalInsights/workspaces/cliws000004?api-version=2020-10-01
   response:
     body:
       string: "{\r\n  \"properties\": {\r\n    \"source\": \"Azure\",\r\n    \"customerId\":
-        \"9c980dbb-b38d-47f2-ae15-bb5fd79caf93\",\r\n    \"provisioningState\": \"Creating\",\r\n
-        \   \"sku\": {\r\n      \"name\": \"pergb2018\",\r\n      \"maxCapacityReservationLevel\":
-        3000,\r\n      \"lastSkuUpdate\": \"Wed, 01 Jul 2020 07:13:33 GMT\"\r\n    },\r\n
-        \   \"retentionInDays\": 30,\r\n    \"features\": {\r\n      \"legacy\": 0,\r\n
-        \     \"searchVersion\": 1,\r\n      \"enableLogAccessUsingOnlyResourcePermissions\":
-        true\r\n    },\r\n    \"workspaceCapping\": {\r\n      \"dailyQuotaGb\": -1.0,\r\n
-        \     \"quotaNextResetTime\": \"Wed, 01 Jul 2020 08:00:00 GMT\",\r\n      \"dataIngestionStatus\":
-        \"RespectQuota\"\r\n    },\r\n    \"publicNetworkAccessForIngestion\": \"Enabled\",\r\n
-        \   \"publicNetworkAccessForQuery\": \"Enabled\",\r\n    \"createdDate\":
-        \"Wed, 01 Jul 2020 07:13:33 GMT\",\r\n    \"modifiedDate\": \"Wed, 01 Jul
-        2020 07:13:33 GMT\"\r\n  },\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004\",\r\n
+        \"a6189dd2-b9be-4d08-8a29-49fae89ffbbe\",\r\n    \"provisioningState\": \"Creating\",\r\n
+        \   \"sku\": {\r\n      \"name\": \"pergb2018\",\r\n      \"lastSkuUpdate\":
+        \"Mon, 07 Jun 2021 05:11:21 GMT\"\r\n    },\r\n    \"retentionInDays\": 30,\r\n
+        \   \"features\": {\r\n      \"legacy\": 0,\r\n      \"searchVersion\": 1,\r\n
+        \     \"enableLogAccessUsingOnlyResourcePermissions\": true\r\n    },\r\n
+        \   \"workspaceCapping\": {\r\n      \"dailyQuotaGb\": -1.0,\r\n      \"quotaNextResetTime\":
+        \"Mon, 07 Jun 2021 16:00:00 GMT\",\r\n      \"dataIngestionStatus\": \"RespectQuota\"\r\n
+        \   },\r\n    \"publicNetworkAccessForIngestion\": \"Enabled\",\r\n    \"publicNetworkAccessForQuery\":
+        \"Enabled\",\r\n    \"createdDate\": \"Mon, 07 Jun 2021 05:11:21 GMT\",\r\n
+        \   \"modifiedDate\": \"Mon, 07 Jun 2021 05:11:21 GMT\"\r\n  },\r\n  \"id\":
+        \"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004\",\r\n
         \ \"name\": \"cliws000004\",\r\n  \"type\": \"Microsoft.OperationalInsights/workspaces\",\r\n
         \ \"location\": \"southcentralus\"\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '1185'
+      - '1141'
       content-type:
       - application/json
       date:
-      - Wed, 01 Jul 2020 07:13:34 GMT
+      - Mon, 07 Jun 2021 05:11:22 GMT
       pragma:
       - no-cache
       server:
@@ -321,7 +346,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -331,35 +356,34 @@ interactions:
       ParameterSetName:
       - -n -g --query -o
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-loganalytics/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - AZURECLI/2.24.0 azsdk-python-mgmt-loganalytics/10.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/Microsoft.OperationalInsights/workspaces/cliws000004?api-version=2020-03-01-preview
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/Microsoft.OperationalInsights/workspaces/cliws000004?api-version=2020-10-01
   response:
     body:
       string: "{\r\n  \"properties\": {\r\n    \"source\": \"Azure\",\r\n    \"customerId\":
-        \"9c980dbb-b38d-47f2-ae15-bb5fd79caf93\",\r\n    \"provisioningState\": \"Succeeded\",\r\n
-        \   \"sku\": {\r\n      \"name\": \"pergb2018\",\r\n      \"maxCapacityReservationLevel\":
-        3000,\r\n      \"lastSkuUpdate\": \"Wed, 01 Jul 2020 07:13:33 GMT\"\r\n    },\r\n
-        \   \"retentionInDays\": 30,\r\n    \"features\": {\r\n      \"legacy\": 0,\r\n
-        \     \"searchVersion\": 1,\r\n      \"enableLogAccessUsingOnlyResourcePermissions\":
-        true\r\n    },\r\n    \"workspaceCapping\": {\r\n      \"dailyQuotaGb\": -1.0,\r\n
-        \     \"quotaNextResetTime\": \"Wed, 01 Jul 2020 08:00:00 GMT\",\r\n      \"dataIngestionStatus\":
-        \"RespectQuota\"\r\n    },\r\n    \"publicNetworkAccessForIngestion\": \"Enabled\",\r\n
-        \   \"publicNetworkAccessForQuery\": \"Enabled\",\r\n    \"createdDate\":
-        \"Wed, 01 Jul 2020 07:13:33 GMT\",\r\n    \"modifiedDate\": \"Wed, 01 Jul
-        2020 07:13:36 GMT\"\r\n  },\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004\",\r\n
+        \"a6189dd2-b9be-4d08-8a29-49fae89ffbbe\",\r\n    \"provisioningState\": \"Succeeded\",\r\n
+        \   \"sku\": {\r\n      \"name\": \"pergb2018\",\r\n      \"lastSkuUpdate\":
+        \"Mon, 07 Jun 2021 05:11:21 GMT\"\r\n    },\r\n    \"retentionInDays\": 30,\r\n
+        \   \"features\": {\r\n      \"legacy\": 0,\r\n      \"searchVersion\": 1,\r\n
+        \     \"enableLogAccessUsingOnlyResourcePermissions\": true\r\n    },\r\n
+        \   \"workspaceCapping\": {\r\n      \"dailyQuotaGb\": -1.0,\r\n      \"quotaNextResetTime\":
+        \"Mon, 07 Jun 2021 16:00:00 GMT\",\r\n      \"dataIngestionStatus\": \"RespectQuota\"\r\n
+        \   },\r\n    \"publicNetworkAccessForIngestion\": \"Enabled\",\r\n    \"publicNetworkAccessForQuery\":
+        \"Enabled\",\r\n    \"createdDate\": \"Mon, 07 Jun 2021 05:11:21 GMT\",\r\n
+        \   \"modifiedDate\": \"Mon, 07 Jun 2021 05:11:23 GMT\"\r\n  },\r\n  \"id\":
+        \"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004\",\r\n
         \ \"name\": \"cliws000004\",\r\n  \"type\": \"Microsoft.OperationalInsights/workspaces\",\r\n
         \ \"location\": \"southcentralus\"\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '1186'
+      - '1142'
       content-type:
       - application/json
       date:
-      - Wed, 01 Jul 2020 07:14:06 GMT
+      - Mon, 07 Jun 2021 05:11:53 GMT
       pragma:
       - no-cache
       server:
@@ -393,24 +417,21 @@ interactions:
       ParameterSetName:
       - --name --workspace
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-monitor/0.10.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-monitor/2.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/diagnosticSettings/clitest000003?api-version=2017-05-01-preview
   response:
     body:
-      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":null,"name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true},{"category":"Administrative","enabled":true},{"category":"ServiceHealth","enabled":true},{"category":"Alert","enabled":true},{"category":"Recommendation","enabled":true},{"category":"Policy","enabled":true},{"category":"Autoscale","enabled":true},{"category":"ResourceHealth","enabled":true}]}}'
+      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":"Microsoft.Insights/diagnosticSettings","name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","logs":[{"category":"Security","enabled":true,"categoryGroup":null},{"category":"Administrative","enabled":true,"categoryGroup":null},{"category":"ServiceHealth","enabled":true,"categoryGroup":null},{"category":"Alert","enabled":true,"categoryGroup":null},{"category":"Recommendation","enabled":true,"categoryGroup":null},{"category":"Policy","enabled":true,"categoryGroup":null},{"category":"Autoscale","enabled":true,"categoryGroup":null},{"category":"ResourceHealth","enabled":true,"categoryGroup":null}]}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '778'
+      - '981'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 01 Jul 2020 07:14:07 GMT
+      - Mon, 07 Jun 2021 05:11:54 GMT
       expires:
       - '-1'
       pragma:
@@ -429,12 +450,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: 'b''b\''{"location": "global", "properties": {"storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002",
+    body: '{"location": "global", "properties": {"storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002",
       "logs": [{"category": "Security", "enabled": true}, {"category": "Administrative",
       "enabled": true}, {"category": "ServiceHealth", "enabled": true}, {"category":
       "Alert", "enabled": true}, {"category": "Recommendation", "enabled": true},
       {"category": "Policy", "enabled": true}, {"category": "Autoscale", "enabled":
-      true}, {"category": "ResourceHealth", "enabled": true}], "workspaceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004"}}\'''''
+      true}, {"category": "ResourceHealth", "enabled": true}], "workspaceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004"}}'
     headers:
       Accept:
       - application/json
@@ -447,28 +468,25 @@ interactions:
       Content-Length:
       - '879'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --name --workspace
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-monitor/0.10.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-monitor/2.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: PUT
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/diagnosticSettings/clitest000003?api-version=2017-05-01-preview
   response:
     body:
-      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":null,"name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","workspaceId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004","logs":[{"category":"Security","enabled":true},{"category":"Administrative","enabled":true},{"category":"ServiceHealth","enabled":true},{"category":"Alert","enabled":true},{"category":"Recommendation","enabled":true},{"category":"Policy","enabled":true},{"category":"Autoscale","enabled":true},{"category":"ResourceHealth","enabled":true}]}}'
+      string: '{"id":"subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/providers/microsoft.insights/diagnosticSettings/clitest000003","type":"Microsoft.Insights/diagnosticSettings","name":"clitest000003","location":"global","properties":{"storageAccountId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Storage/storageAccounts/clitest000002","workspaceId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001/providers/microsoft.operationalinsights/workspaces/cliws000004","logs":[{"category":"Security","enabled":true,"categoryGroup":null},{"category":"Administrative","enabled":true,"categoryGroup":null},{"category":"ServiceHealth","enabled":true,"categoryGroup":null},{"category":"Alert","enabled":true,"categoryGroup":null},{"category":"Recommendation","enabled":true,"categoryGroup":null},{"category":"Policy","enabled":true,"categoryGroup":null},{"category":"Autoscale","enabled":true,"categoryGroup":null},{"category":"ResourceHealth","enabled":true,"categoryGroup":null}]}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '1009'
+      - '1212'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 01 Jul 2020 07:14:13 GMT
+      - Mon, 07 Jun 2021 05:11:59 GMT
       expires:
       - '-1'
       pragma:
@@ -504,10 +522,7 @@ interactions:
       ParameterSetName:
       - --name -y
       User-Agent:
-      - python/3.8.0 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-monitor/0.10.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
-      accept-language:
-      - en-US
+      - AZURECLI/2.24.0 azsdk-python-azure-mgmt-monitor/2.0.0 Python/3.8.10 (Windows-10-10.0.19043-SP0)
     method: DELETE
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/diagnosticSettings/clitest000003?api-version=2017-05-01-preview
   response:
@@ -519,7 +534,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Wed, 01 Jul 2020 07:14:15 GMT
+      - Mon, 07 Jun 2021 05:12:01 GMT
       expires:
       - '-1'
       pragma:

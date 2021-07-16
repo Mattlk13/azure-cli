@@ -13,24 +13,24 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/9.0.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - python/3.8.8 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.3
+        azure-mgmt-resource/12.1.0 Azure-SDK-For-Python AZURECLI/2.22.1
       accept-language:
       - en-US
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001?api-version=2019-07-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001?api-version=2020-10-01
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001","name":"cli_test_sb_network000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2020-05-16T02:43:43Z","StorageType":"Standard_LRS","type":"test"},"properties":{"provisioningState":"Succeeded"}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001","name":"cli_test_sb_network000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2021-04-25T01:40:45Z"},"properties":{"provisioningState":"Succeeded"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '471'
+      - '428'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:43:47 GMT
+      - Sun, 25 Apr 2021 01:40:52 GMT
       expires:
       - '-1'
       pragma:
@@ -59,40 +59,37 @@ interactions:
       Content-Length:
       - '123'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest1\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1\",\r\n
-        \ \"etag\": \"W/\\\"3e755435-d2ac-4f9c-af0e-c19597f994e7\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"b1f5ce7d-0362-4ee7-bdc0-5ae636129b92\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n
-        \   \"resourceGuid\": \"57a87109-b31e-4aff-b675-30db4e6c7cee\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"59dcfaee-742f-4007-91e0-c9690ac82028\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       azure-asyncnotification:
       - Enabled
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/76fa3fc4-a207-4b98-8dbd-72a80b14c3ec?api-version=2020-05-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/ef499d7b-3e26-4e1b-86eb-0d69c05aa2c1?api-version=2021-02-01
       cache-control:
       - no-cache
       content-length:
-      - '782'
+      - '748'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:43:53 GMT
+      - Sun, 25 Apr 2021 01:40:58 GMT
       expires:
       - '-1'
       pragma:
@@ -105,9 +102,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - a72c9455-c97a-4fdf-adf9-a53e5fae8603
+      - b5672d5a-1526-493f-b9e8-7ac9672bf0c4
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1195'
+      - '1199'
     status:
       code: 201
       message: Created
@@ -115,7 +112,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -125,10 +122,9 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/76fa3fc4-a207-4b98-8dbd-72a80b14c3ec?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/ef499d7b-3e26-4e1b-86eb-0d69c05aa2c1?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"status\": \"Succeeded\"\r\n}"
@@ -140,7 +136,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:43:57 GMT
+      - Sun, 25 Apr 2021 01:41:01 GMT
       expires:
       - '-1'
       pragma:
@@ -157,7 +153,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - 6e87cb0f-6b79-4a59-ae44-79171941f297
+      - edca2fc5-d26d-4154-a734-5222e62dd71f
     status:
       code: 200
       message: OK
@@ -165,7 +161,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -175,32 +171,31 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest1\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1\",\r\n
-        \ \"etag\": \"W/\\\"e31f779b-8cc9-4ffb-94ca-e12060649f00\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"3982b035-3953-463a-8504-be600a5c68de\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n
-        \   \"resourceGuid\": \"57a87109-b31e-4aff-b675-30db4e6c7cee\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"59dcfaee-742f-4007-91e0-c9690ac82028\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '783'
+      - '749'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:43:57 GMT
+      - Sun, 25 Apr 2021 01:41:02 GMT
       etag:
-      - W/"e31f779b-8cc9-4ffb-94ca-e12060649f00"
+      - W/"3982b035-3953-463a-8504-be600a5c68de"
       expires:
       - '-1'
       pragma:
@@ -217,7 +212,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - 74e3191c-dafe-45d2-94e2-4143954747f3
+      - 3bbbc825-d0fc-4d48-bcf3-33c663b471ff
     status:
       code: 200
       message: OK
@@ -235,24 +230,24 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/9.0.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - python/3.8.8 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.3
+        azure-mgmt-resource/12.1.0 Azure-SDK-For-Python AZURECLI/2.22.1
       accept-language:
       - en-US
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001?api-version=2019-07-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001?api-version=2020-10-01
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001","name":"cli_test_sb_network000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2020-05-16T02:43:43Z","StorageType":"Standard_LRS","type":"test"},"properties":{"provisioningState":"Succeeded"}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001","name":"cli_test_sb_network000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2021-04-25T01:40:45Z"},"properties":{"provisioningState":"Succeeded"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '471'
+      - '428'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:43:58 GMT
+      - Sun, 25 Apr 2021 01:41:02 GMT
       expires:
       - '-1'
       pragma:
@@ -281,40 +276,37 @@ interactions:
       Content-Length:
       - '123'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest2\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2\",\r\n
-        \ \"etag\": \"W/\\\"01698ba4-e0ac-49c2-ac97-eb60285252bc\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"495fd611-ab28-4eb4-8d25-d6acf98a1687\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n
-        \   \"resourceGuid\": \"b20b9f2c-7061-4279-bad7-d5ee8a83e7f1\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"273ec916-8dd7-4d88-95a0-c03e36618295\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       azure-asyncnotification:
       - Enabled
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/b7a4cc0a-0463-4933-97dd-3980df78e8c4?api-version=2020-05-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/80f173a6-3ff0-4d94-9a55-bfb43ee65218?api-version=2021-02-01
       cache-control:
       - no-cache
       content-length:
-      - '782'
+      - '748'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:03 GMT
+      - Sun, 25 Apr 2021 01:41:09 GMT
       expires:
       - '-1'
       pragma:
@@ -327,9 +319,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - 84891d81-4a6c-490b-ab1f-824520d2c914
+      - ac3842a9-a596-4202-a205-d192bf27c658
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1194'
+      - '1199'
     status:
       code: 201
       message: Created
@@ -337,7 +329,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -347,10 +339,9 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/b7a4cc0a-0463-4933-97dd-3980df78e8c4?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/80f173a6-3ff0-4d94-9a55-bfb43ee65218?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"status\": \"Succeeded\"\r\n}"
@@ -362,7 +353,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:08 GMT
+      - Sun, 25 Apr 2021 01:41:13 GMT
       expires:
       - '-1'
       pragma:
@@ -379,7 +370,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - a8fc2911-91af-470f-86ae-466ab63eae16
+      - 997558e9-ff9a-4183-8e19-c8f9ba7404dc
     status:
       code: 200
       message: OK
@@ -387,7 +378,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -397,32 +388,31 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest2\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2\",\r\n
-        \ \"etag\": \"W/\\\"13a86f71-0e3a-4178-859c-4bd62daf69c9\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"64e3fca3-3204-499c-9cad-faaa5fe44d60\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n
-        \   \"resourceGuid\": \"b20b9f2c-7061-4279-bad7-d5ee8a83e7f1\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"273ec916-8dd7-4d88-95a0-c03e36618295\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '783'
+      - '749'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:08 GMT
+      - Sun, 25 Apr 2021 01:41:13 GMT
       etag:
-      - W/"13a86f71-0e3a-4178-859c-4bd62daf69c9"
+      - W/"64e3fca3-3204-499c-9cad-faaa5fe44d60"
       expires:
       - '-1'
       pragma:
@@ -439,7 +429,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - abe706b4-151d-4526-b433-0fb4e78a660a
+      - b4e4b1c3-7ee8-4488-9b27-38305c343046
     status:
       code: 200
       message: OK
@@ -457,34 +447,31 @@ interactions:
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest1\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1\",\r\n
-        \ \"etag\": \"W/\\\"e31f779b-8cc9-4ffb-94ca-e12060649f00\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"3982b035-3953-463a-8504-be600a5c68de\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n
-        \   \"resourceGuid\": \"57a87109-b31e-4aff-b675-30db4e6c7cee\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"59dcfaee-742f-4007-91e0-c9690ac82028\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '783'
+      - '749'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:09 GMT
+      - Sun, 25 Apr 2021 01:41:14 GMT
       etag:
-      - W/"e31f779b-8cc9-4ffb-94ca-e12060649f00"
+      - W/"3982b035-3953-463a-8504-be600a5c68de"
       expires:
       - '-1'
       pragma:
@@ -501,16 +488,16 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - a90316b3-2c87-484c-bae6-c2ca4a27747b
+      - e955fc7b-79cf-4ec3-a52d-c48ca3633ec6
     status:
       code: 200
       message: OK
 - request:
-    body: 'b''{"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1",
+    body: '{"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1",
       "location": "westus", "tags": {}, "properties": {"addressSpace": {"addressPrefixes":
-      ["10.0.0.0/16"]}, "dhcpOptions": {"dnsServers": []}, "subnets": [{"properties":
-      {"addressPrefix": "10.0.0.0/24"}, "name": "default"}], "virtualNetworkPeerings":
-      [], "enableDdosProtection": false, "enableVmProtection": false}}'''
+      ["10.0.0.0/16"]}, "dhcpOptions": {"dnsServers": []}, "subnets": [{"name": "default",
+      "properties": {"addressPrefix": "10.0.0.0/24"}}], "virtualNetworkPeerings":
+      [], "enableDdosProtection": false}}'
     headers:
       Accept:
       - application/json
@@ -521,47 +508,44 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '521'
+      - '492'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest1\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1\",\r\n
-        \ \"etag\": \"W/\\\"1d8d8cf5-58e3-46a3-a592-ca840af394a2\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"49f95e2f-b32d-4f3b-b107-4fdd4bc7f514\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n
-        \   \"resourceGuid\": \"57a87109-b31e-4aff-b675-30db4e6c7cee\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"59dcfaee-742f-4007-91e0-c9690ac82028\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [\r\n      {\r\n        \"name\": \"default\",\r\n        \"id\":
         \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default\",\r\n
-        \       \"etag\": \"W/\\\"1d8d8cf5-58e3-46a3-a592-ca840af394a2\\\"\",\r\n
+        \       \"etag\": \"W/\\\"49f95e2f-b32d-4f3b-b107-4fdd4bc7f514\\\"\",\r\n
         \       \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n
         \         \"addressPrefix\": \"10.0.0.0/24\",\r\n          \"delegations\":
         [],\r\n          \"privateEndpointNetworkPolicies\": \"Enabled\",\r\n          \"privateLinkServiceNetworkPolicies\":
         \"Enabled\"\r\n        },\r\n        \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\r\n
         \     }\r\n    ],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/9ca9ab43-bee3-44fa-a1ba-4d500e3e57c3?api-version=2020-05-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/faf11557-787b-48ba-94d3-cfd368b0e3c9?api-version=2021-02-01
       cache-control:
       - no-cache
       content-length:
-      - '1461'
+      - '1427'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:10 GMT
+      - Sun, 25 Apr 2021 01:41:15 GMT
       expires:
       - '-1'
       pragma:
@@ -578,9 +562,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - 143c6036-51bd-443c-9a8d-cd2b77064de9
+      - 83cde6de-a85b-4c7d-b40a-3aa4f238fec3
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1193'
+      - '1198'
     status:
       code: 200
       message: OK
@@ -588,7 +572,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -598,10 +582,9 @@ interactions:
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/9ca9ab43-bee3-44fa-a1ba-4d500e3e57c3?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/faf11557-787b-48ba-94d3-cfd368b0e3c9?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"status\": \"Succeeded\"\r\n}"
@@ -613,7 +596,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:14 GMT
+      - Sun, 25 Apr 2021 01:41:18 GMT
       expires:
       - '-1'
       pragma:
@@ -630,7 +613,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - be87cfbb-96ba-45d6-a611-d678d520d767
+      - f2d5d029-5a33-4816-86a2-13640c3fa5fd
     status:
       code: 200
       message: OK
@@ -638,7 +621,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -648,39 +631,38 @@ interactions:
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest1\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1\",\r\n
-        \ \"etag\": \"W/\\\"cfd915ee-388b-4a14-9314-68013c0d1317\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"60d5e112-9a4c-4808-96b8-bf2baad3c6d5\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n
-        \   \"resourceGuid\": \"57a87109-b31e-4aff-b675-30db4e6c7cee\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"59dcfaee-742f-4007-91e0-c9690ac82028\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [\r\n      {\r\n        \"name\": \"default\",\r\n        \"id\":
         \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default\",\r\n
-        \       \"etag\": \"W/\\\"cfd915ee-388b-4a14-9314-68013c0d1317\\\"\",\r\n
+        \       \"etag\": \"W/\\\"60d5e112-9a4c-4808-96b8-bf2baad3c6d5\\\"\",\r\n
         \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
         \         \"addressPrefix\": \"10.0.0.0/24\",\r\n          \"delegations\":
         [],\r\n          \"privateEndpointNetworkPolicies\": \"Enabled\",\r\n          \"privateLinkServiceNetworkPolicies\":
         \"Enabled\"\r\n        },\r\n        \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\r\n
         \     }\r\n    ],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '1463'
+      - '1429'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:14 GMT
+      - Sun, 25 Apr 2021 01:41:19 GMT
       etag:
-      - W/"cfd915ee-388b-4a14-9314-68013c0d1317"
+      - W/"60d5e112-9a4c-4808-96b8-bf2baad3c6d5"
       expires:
       - '-1'
       pragma:
@@ -697,7 +679,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - 455f5c73-e77a-4e9b-9b1f-b7f53844c081
+      - 116df8c2-7211-4610-8e98-c3920765e38c
     status:
       code: 200
       message: OK
@@ -715,34 +697,31 @@ interactions:
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest2\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2\",\r\n
-        \ \"etag\": \"W/\\\"13a86f71-0e3a-4178-859c-4bd62daf69c9\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"64e3fca3-3204-499c-9cad-faaa5fe44d60\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n
-        \   \"resourceGuid\": \"b20b9f2c-7061-4279-bad7-d5ee8a83e7f1\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"273ec916-8dd7-4d88-95a0-c03e36618295\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '783'
+      - '749'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:15 GMT
+      - Sun, 25 Apr 2021 01:41:19 GMT
       etag:
-      - W/"13a86f71-0e3a-4178-859c-4bd62daf69c9"
+      - W/"64e3fca3-3204-499c-9cad-faaa5fe44d60"
       expires:
       - '-1'
       pragma:
@@ -759,16 +738,16 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - deb49f9c-fe69-4afb-9b7e-8d7184996022
+      - 822966a9-baea-4b51-a9b2-b2801377aad4
     status:
       code: 200
       message: OK
 - request:
-    body: 'b''{"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2",
+    body: '{"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2",
       "location": "westus", "tags": {}, "properties": {"addressSpace": {"addressPrefixes":
-      ["10.0.0.0/16"]}, "dhcpOptions": {"dnsServers": []}, "subnets": [{"properties":
-      {"addressPrefix": "10.0.0.0/24"}, "name": "secondvnet"}], "virtualNetworkPeerings":
-      [], "enableDdosProtection": false, "enableVmProtection": false}}'''
+      ["10.0.0.0/16"]}, "dhcpOptions": {"dnsServers": []}, "subnets": [{"name": "secondvnet",
+      "properties": {"addressPrefix": "10.0.0.0/24"}}], "virtualNetworkPeerings":
+      [], "enableDdosProtection": false}}'
     headers:
       Accept:
       - application/json
@@ -779,47 +758,44 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '524'
+      - '495'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest2\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2\",\r\n
-        \ \"etag\": \"W/\\\"07ab1b78-091d-4851-a297-cc2725bf1c94\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"57318158-732d-4da9-a32d-a2c27d79be1c\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n
-        \   \"resourceGuid\": \"b20b9f2c-7061-4279-bad7-d5ee8a83e7f1\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"273ec916-8dd7-4d88-95a0-c03e36618295\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [\r\n      {\r\n        \"name\": \"secondvnet\",\r\n        \"id\":
         \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet\",\r\n
-        \       \"etag\": \"W/\\\"07ab1b78-091d-4851-a297-cc2725bf1c94\\\"\",\r\n
+        \       \"etag\": \"W/\\\"57318158-732d-4da9-a32d-a2c27d79be1c\\\"\",\r\n
         \       \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n
         \         \"addressPrefix\": \"10.0.0.0/24\",\r\n          \"delegations\":
         [],\r\n          \"privateEndpointNetworkPolicies\": \"Enabled\",\r\n          \"privateLinkServiceNetworkPolicies\":
         \"Enabled\"\r\n        },\r\n        \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\r\n
         \     }\r\n    ],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       azure-asyncoperation:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/1b032143-f79b-4b43-a209-e8a76f0f9088?api-version=2020-05-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/f2fb43be-57a7-4981-b9df-93fccc86b9c5?api-version=2021-02-01
       cache-control:
       - no-cache
       content-length:
-      - '1467'
+      - '1433'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:15 GMT
+      - Sun, 25 Apr 2021 01:41:20 GMT
       expires:
       - '-1'
       pragma:
@@ -836,9 +812,9 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - 8410d0df-e65a-4c28-a44c-6b20ec80049d
+      - 61a960ab-a77c-41ac-a0fb-6281488325c4
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1195'
+      - '1197'
     status:
       code: 200
       message: OK
@@ -846,7 +822,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -856,10 +832,9 @@ interactions:
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/1b032143-f79b-4b43-a209-e8a76f0f9088?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westus/operations/f2fb43be-57a7-4981-b9df-93fccc86b9c5?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"status\": \"Succeeded\"\r\n}"
@@ -871,7 +846,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:20 GMT
+      - Sun, 25 Apr 2021 01:41:23 GMT
       expires:
       - '-1'
       pragma:
@@ -888,7 +863,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - 3e735f39-8da1-40b5-b524-8a14d6f51394
+      - 9230ef1e-e8bd-4d33-9835-83ee6bd6cb7e
     status:
       code: 200
       message: OK
@@ -896,7 +871,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -906,39 +881,38 @@ interactions:
       ParameterSetName:
       - --resource-group --name --vnet-name --address-prefixes
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-network/10.2.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-azure-mgmt-network/18.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2?api-version=2021-02-01
   response:
     body:
       string: "{\r\n  \"name\": \"sbehvnettest2\",\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2\",\r\n
-        \ \"etag\": \"W/\\\"c73d5846-bdb3-45ee-ad20-2f074f37207b\\\"\",\r\n  \"type\":
+        \ \"etag\": \"W/\\\"b74d7834-7ba2-4340-b0fc-17cf2d8cdaf2\\\"\",\r\n  \"type\":
         \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
         \ \"tags\": {},\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n
-        \   \"resourceGuid\": \"b20b9f2c-7061-4279-bad7-d5ee8a83e7f1\",\r\n    \"addressSpace\":
+        \   \"resourceGuid\": \"273ec916-8dd7-4d88-95a0-c03e36618295\",\r\n    \"addressSpace\":
         {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n
         \   },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n
         \   \"subnets\": [\r\n      {\r\n        \"name\": \"secondvnet\",\r\n        \"id\":
         \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet\",\r\n
-        \       \"etag\": \"W/\\\"c73d5846-bdb3-45ee-ad20-2f074f37207b\\\"\",\r\n
+        \       \"etag\": \"W/\\\"b74d7834-7ba2-4340-b0fc-17cf2d8cdaf2\\\"\",\r\n
         \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
         \         \"addressPrefix\": \"10.0.0.0/24\",\r\n          \"delegations\":
         [],\r\n          \"privateEndpointNetworkPolicies\": \"Enabled\",\r\n          \"privateLinkServiceNetworkPolicies\":
         \"Enabled\"\r\n        },\r\n        \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\r\n
         \     }\r\n    ],\r\n    \"virtualNetworkPeerings\": [],\r\n    \"enableDdosProtection\":
-        false,\r\n    \"enableVmProtection\": false\r\n  }\r\n}"
+        false\r\n  }\r\n}"
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '1469'
+      - '1435'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:20 GMT
+      - Sun, 25 Apr 2021 01:41:23 GMT
       etag:
-      - W/"c73d5846-bdb3-45ee-ad20-2f074f37207b"
+      - W/"b74d7834-7ba2-4340-b0fc-17cf2d8cdaf2"
       expires:
       - '-1'
       pragma:
@@ -955,7 +929,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-arm-service-request-id:
-      - c28dc7b2-df84-4991-8803-aee5df8814d3
+      - 07983eb4-7f09-40f2-aae0-c3be7ee3f31d
     status:
       code: 200
       message: OK
@@ -973,14 +947,11 @@ interactions:
       Content-Length:
       - '32'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: POST
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ServiceBus/CheckNameAvailability?api-version=2017-04-01
   response:
@@ -994,16 +965,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:21 GMT
+      - Sun, 25 Apr 2021 01:41:24 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1013,7 +984,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1199'
+      - '1198'
     status:
       code: 200
       message: OK
@@ -1031,24 +1002,24 @@ interactions:
       ParameterSetName:
       - --resource-group --name --tags --sku --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/9.0.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - python/3.8.8 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.3
+        azure-mgmt-resource/12.1.0 Azure-SDK-For-Python AZURECLI/2.22.1
       accept-language:
       - en-US
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001?api-version=2019-07-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001?api-version=2020-10-01
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001","name":"cli_test_sb_network000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2020-05-16T02:43:43Z","StorageType":"Standard_LRS","type":"test"},"properties":{"provisioningState":"Succeeded"}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001","name":"cli_test_sb_network000001","type":"Microsoft.Resources/resourceGroups","location":"westus","tags":{"product":"azurecli","cause":"automation","date":"2021-04-25T01:40:45Z"},"properties":{"provisioningState":"Succeeded"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '471'
+      - '428'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:23 GMT
+      - Sun, 25 Apr 2021 01:41:25 GMT
       expires:
       - '-1'
       pragma:
@@ -1077,29 +1048,26 @@ interactions:
       Content-Length:
       - '99'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --tags --sku --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Created","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:44:29.1Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Created","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:41:31.363Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '680'
+      - '706'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:44:29 GMT
+      - Sun, 25 Apr 2021 01:41:32 GMT
       expires:
       - '-1'
       pragma:
@@ -1118,7 +1086,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1192'
+      - '1199'
     status:
       code: 200
       message: OK
@@ -1126,7 +1094,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -1136,32 +1104,131 @@ interactions:
       ParameterSetName:
       - --resource-group --name --tags --sku --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Created","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:44:29.1Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Created","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:41:31.363Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '680'
+      - '706'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:45:02 GMT
+      - Sun, 25 Apr 2021 01:42:03 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - servicebus namespace create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --resource-group --name --tags --sku --default-action
+      User-Agent:
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
+  response:
+    body:
+      string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Created","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:41:31.363Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '706'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sun, 25 Apr 2021 01:42:36 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Service-Bus-Resource-Provider/SN1
+      - Microsoft-HTTPAPI/2.0
+      server-sb:
+      - Service-Bus-Resource-Provider/SN1
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - servicebus namespace create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --resource-group --name --tags --sku --default-action
+      User-Agent:
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
+  response:
+    body:
+      string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:43:00.987Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '704'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sun, 25 Apr 2021 01:43:07 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Service-Bus-Resource-Provider/SN1
+      - Microsoft-HTTPAPI/2.0
+      server-sb:
+      - Service-Bus-Resource-Provider/SN1
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1187,117 +1254,12 @@ interactions:
       ParameterSetName:
       - --resource-group --name --tags --sku --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Created","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:44:29.1Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
-    headers:
-      cache-control:
-      - no-cache
-      content-length:
-      - '680'
-      content-type:
-      - application/json; charset=utf-8
-      date:
-      - Sat, 16 May 2020 02:45:33 GMT
-      expires:
-      - '-1'
-      pragma:
-      - no-cache
-      server:
-      - Service-Bus-Resource-Provider/CH3
-      - Microsoft-HTTPAPI/2.0
-      server-sb:
-      - Service-Bus-Resource-Provider/CH3
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - servicebus namespace create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - --resource-group --name --tags --sku --default-action
-      User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
-  response:
-    body:
-      string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:45:42.023Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
-    headers:
-      cache-control:
-      - no-cache
-      content-length:
-      - '680'
-      content-type:
-      - application/json; charset=utf-8
-      date:
-      - Sat, 16 May 2020 02:46:04 GMT
-      expires:
-      - '-1'
-      pragma:
-      - no-cache
-      server:
-      - Service-Bus-Resource-Provider/CH3
-      - Microsoft-HTTPAPI/2.0
-      server-sb:
-      - Service-Bus-Resource-Provider/CH3
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - servicebus namespace create
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - --resource-group --name --tags --sku --default-action
-      User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
-  response:
-    body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[]}}'
     headers:
       cache-control:
@@ -1307,16 +1269,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:46:05 GMT
+      - Sun, 25 Apr 2021 01:43:08 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1343,19 +1305,16 @@ interactions:
       Content-Length:
       - '84'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --tags --sku --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Allow","virtualNetworkRules":[],"ipRules":[]}}'
     headers:
       cache-control:
@@ -1365,16 +1324,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:46:13 GMT
+      - Sun, 25 Apr 2021 01:43:15 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1384,7 +1343,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1192'
+      - '1198'
     status:
       code: 200
       message: OK
@@ -1402,25 +1361,22 @@ interactions:
       ParameterSetName:
       - --resource-group --name --tags --sku --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:45:42.023Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:43:00.987Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '680'
+      - '704'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:46:14 GMT
+      - Sun, 25 Apr 2021 01:43:16 GMT
       expires:
       - '-1'
       pragma:
@@ -1455,25 +1411,22 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:45:42.023Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:43:00.987Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '680'
+      - '704'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:46:14 GMT
+      - Sun, 25 Apr 2021 01:43:16 GMT
       expires:
       - '-1'
       pragma:
@@ -1508,25 +1461,22 @@ interactions:
       ParameterSetName:
       - --resource-group --name --tags --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:45:42.023Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:43:00.987Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '680'
+      - '704'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:46:15 GMT
+      - Sun, 25 Apr 2021 01:43:17 GMT
       expires:
       - '-1'
       pragma:
@@ -1561,15 +1511,12 @@ interactions:
       ParameterSetName:
       - --resource-group --name --tags --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Allow","virtualNetworkRules":[],"ipRules":[]}}'
     headers:
       cache-control:
@@ -1579,16 +1526,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:46:16 GMT
+      - Sun, 25 Apr 2021 01:43:18 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1615,19 +1562,16 @@ interactions:
       Content-Length:
       - '83'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --tags --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[]}}'
     headers:
       cache-control:
@@ -1637,76 +1581,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:46:24 GMT
+      - Sun, 25 Apr 2021 01:43:25 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/CH3
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-ratelimit-remaining-subscription-writes:
-      - '1191'
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"location": "West US", "tags": {"{tag1": "value1}"}, "sku": {"name": "Premium",
-      "tier": "Premium", "capacity": 1}}'
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - servicebus namespace update
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '115'
-      Content-Type:
-      - application/json; charset=utf-8
-      ParameterSetName:
-      - --resource-group --name --tags --default-action
-      User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
-    method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
-  response:
-    body:
-      string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Updating","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:46:31.48Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
-    headers:
-      cache-control:
-      - no-cache
-      content-length:
-      - '682'
-      content-type:
-      - application/json; charset=utf-8
-      date:
-      - Sat, 16 May 2020 02:46:31 GMT
-      expires:
-      - '-1'
-      pragma:
-      - no-cache
-      server:
-      - Service-Bus-Resource-Provider/CH3
-      - Microsoft-HTTPAPI/2.0
-      server-sb:
-      - Service-Bus-Resource-Provider/CH3
+      - Service-Bus-Resource-Provider/SN1
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1721,7 +1605,8 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: null
+    body: '{"location": "West US", "tags": {"{tag1": "value1}"}, "sku": {"name": "Premium",
+      "tier": "Premium", "capacity": 1}, "properties": {"zoneRedundant": false}}'
     headers:
       Accept:
       - application/json
@@ -1731,26 +1616,81 @@ interactions:
       - servicebus namespace update
       Connection:
       - keep-alive
+      Content-Length:
+      - '155'
+      Content-Type:
+      - application/json
       ParameterSetName:
       - --resource-group --name --tags --default-action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:46:35.087Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Updating","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:43:32.377Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '680'
+      - '707'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:02 GMT
+      - Sun, 25 Apr 2021 01:43:34 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Service-Bus-Resource-Provider/SN1
+      - Microsoft-HTTPAPI/2.0
+      server-sb:
+      - Service-Bus-Resource-Provider/SN1
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1199'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - servicebus namespace update
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --resource-group --name --tags --default-action
+      User-Agent:
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
+  response:
+    body:
+      string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Updating","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:43:32.377Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Activating"}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '707'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sun, 25 Apr 2021 01:44:04 GMT
       expires:
       - '-1'
       pragma:
@@ -1760,6 +1700,56 @@ interactions:
       - Microsoft-HTTPAPI/2.0
       server-sb:
       - Service-Bus-Resource-Provider/CH3
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - servicebus namespace update
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --resource-group --name --tags --default-action
+      User-Agent:
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
+  response:
+    body:
+      string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:44:33.137Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Active"}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '704'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sun, 25 Apr 2021 01:44:36 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Service-Bus-Resource-Provider/SN1
+      - Microsoft-HTTPAPI/2.0
+      server-sb:
+      - Service-Bus-Resource-Provider/SN1
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1785,15 +1775,12 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[]}}'
     headers:
       cache-control:
@@ -1803,7 +1790,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:04 GMT
+      - Sun, 25 Apr 2021 01:44:36 GMT
       expires:
       - '-1'
       pragma:
@@ -1838,15 +1825,12 @@ interactions:
       ParameterSetName:
       - --resource-group --name --ip-address --action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[]}}'
     headers:
       cache-control:
@@ -1856,16 +1840,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:06 GMT
+      - Sun, 25 Apr 2021 01:44:39 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1892,19 +1876,16 @@ interactions:
       Content-Length:
       - '123'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --ip-address --action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
     headers:
       cache-control:
@@ -1914,16 +1895,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:12 GMT
+      - Sun, 25 Apr 2021 01:44:46 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -1933,7 +1914,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1194'
+      - '1199'
     status:
       code: 200
       message: OK
@@ -1951,15 +1932,12 @@ interactions:
       ParameterSetName:
       - --resource-group --name --ip-address --action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
     headers:
       cache-control:
@@ -1969,7 +1947,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:15 GMT
+      - Sun, 25 Apr 2021 01:44:47 GMT
       expires:
       - '-1'
       pragma:
@@ -2005,19 +1983,16 @@ interactions:
       Content-Length:
       - '165'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --ip-address --action
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"},{"ipMask":"2.2.2.2","action":"Allow"}]}}'
     headers:
       cache-control:
@@ -2027,173 +2002,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:21 GMT
-      expires:
-      - '-1'
-      pragma:
-      - no-cache
-      server:
-      - Service-Bus-Resource-Provider/CH3
-      - Microsoft-HTTPAPI/2.0
-      server-sb:
-      - Service-Bus-Resource-Provider/CH3
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      x-ms-ratelimit-remaining-subscription-writes:
-      - '1195'
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - servicebus namespace network-rule list
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - --resource-group --name
-      User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
-  response:
-    body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"},{"ipMask":"2.2.2.2","action":"Allow"}]}}'
-    headers:
-      cache-control:
-      - no-cache
-      content-length:
-      - '484'
-      content-type:
-      - application/json; charset=utf-8
-      date:
-      - Sat, 16 May 2020 02:47:22 GMT
-      expires:
-      - '-1'
-      pragma:
-      - no-cache
-      server:
-      - Service-Bus-Resource-Provider/CH3
-      - Microsoft-HTTPAPI/2.0
-      server-sb:
-      - Service-Bus-Resource-Provider/CH3
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - servicebus namespace network-rule remove
-      Connection:
-      - keep-alive
-      ParameterSetName:
-      - --resource-group --name --ip-address
-      User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
-  response:
-    body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"},{"ipMask":"2.2.2.2","action":"Allow"}]}}'
-    headers:
-      cache-control:
-      - no-cache
-      content-length:
-      - '484'
-      content-type:
-      - application/json; charset=utf-8
-      date:
-      - Sat, 16 May 2020 02:47:24 GMT
-      expires:
-      - '-1'
-      pragma:
-      - no-cache
-      server:
-      - Service-Bus-Resource-Provider/CH3
-      - Microsoft-HTTPAPI/2.0
-      server-sb:
-      - Service-Bus-Resource-Provider/CH3
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [], "ipRules":
-      [{"ipMask": "1.1.1.1", "action": "Allow"}]}}'
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      CommandName:
-      - servicebus namespace network-rule remove
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '123'
-      Content-Type:
-      - application/json; charset=utf-8
-      ParameterSetName:
-      - --resource-group --name --ip-address
-      User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
-    method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
-  response:
-    body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
-    headers:
-      cache-control:
-      - no-cache
-      content-length:
-      - '446'
-      content-type:
-      - application/json; charset=utf-8
-      date:
-      - Sat, 16 May 2020 02:47:31 GMT
+      - Sun, 25 Apr 2021 01:44:54 GMT
       expires:
       - '-1'
       pragma:
@@ -2224,31 +2033,28 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       CommandName:
-      - servicebus namespace network-rule add
+      - servicebus namespace network-rule list
       Connection:
       - keep-alive
       ParameterSetName:
-      - --resource-group --name --subnet --ignore-missing-endpoint
+      - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"},{"ipMask":"2.2.2.2","action":"Allow"}]}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '446'
+      - '484'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:33 GMT
+      - Sun, 25 Apr 2021 01:44:57 GMT
       expires:
       - '-1'
       pragma:
@@ -2270,45 +2076,90 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: 'b''{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [{"subnet":
-      {"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},
-      "ignoreMissingVnetServiceEndpoint": true}], "ipRules": [{"ipMask": "1.1.1.1",
-      "action": "Allow"}]}}'''
+    body: null
     headers:
       Accept:
       - application/json
       Accept-Encoding:
       - gzip, deflate
       CommandName:
-      - servicebus namespace network-rule add
+      - servicebus namespace network-rule remove
       Connection:
       - keep-alive
-      Content-Length:
-      - '403'
-      Content-Type:
-      - application/json; charset=utf-8
       ParameterSetName:
-      - --resource-group --name --subnet --ignore-missing-endpoint
+      - --resource-group --name --ip-address
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
-    method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"},{"ipMask":"2.2.2.2","action":"Allow"}]}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '722'
+      - '484'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:53 GMT
+      - Sun, 25 Apr 2021 01:44:57 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Service-Bus-Resource-Provider/SN1
+      - Microsoft-HTTPAPI/2.0
+      server-sb:
+      - Service-Bus-Resource-Provider/SN1
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [], "ipRules":
+      [{"ipMask": "1.1.1.1", "action": "Allow"}]}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - servicebus namespace network-rule remove
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '123'
+      Content-Type:
+      - application/json
+      ParameterSetName:
+      - --resource-group --name --ip-address
+      User-Agent:
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '446'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sun, 25 Apr 2021 01:45:04 GMT
       expires:
       - '-1'
       pragma:
@@ -2327,7 +2178,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1196'
+      - '1194'
     status:
       code: 200
       message: OK
@@ -2345,25 +2196,22 @@ interactions:
       ParameterSetName:
       - --resource-group --name --subnet --ignore-missing-endpoint
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '722'
+      - '446'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:47:54 GMT
+      - Sun, 25 Apr 2021 01:45:05 GMT
       expires:
       - '-1'
       pragma:
@@ -2385,11 +2233,120 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: 'b''{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [{"subnet":
+    body: '{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [{"subnet":
+      {"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},
+      "ignoreMissingVnetServiceEndpoint": true}], "ipRules": [{"ipMask": "1.1.1.1",
+      "action": "Allow"}]}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - servicebus namespace network-rule add
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '403'
+      Content-Type:
+      - application/json
+      ParameterSetName:
+      - --resource-group --name --subnet --ignore-missing-endpoint
+      User-Agent:
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '722'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sun, 25 Apr 2021 01:45:17 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Service-Bus-Resource-Provider/CH3
+      - Microsoft-HTTPAPI/2.0
+      server-sb:
+      - Service-Bus-Resource-Provider/CH3
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1198'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - servicebus namespace network-rule add
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --resource-group --name --subnet --ignore-missing-endpoint
+      User-Agent:
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '722'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sun, 25 Apr 2021 01:45:19 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Service-Bus-Resource-Provider/CH3
+      - Microsoft-HTTPAPI/2.0
+      server-sb:
+      - Service-Bus-Resource-Provider/CH3
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [{"subnet":
       {"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},
       "ignoreMissingVnetServiceEndpoint": true}, {"subnet": {"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet"},
       "ignoreMissingVnetServiceEndpoint": true}], "ipRules": [{"ipMask": "1.1.1.1",
-      "action": "Allow"}]}}'''
+      "action": "Allow"}]}}'
     headers:
       Accept:
       - application/json
@@ -2402,19 +2359,16 @@ interactions:
       Content-Length:
       - '688'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --subnet --ignore-missing-endpoint
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true},{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
     headers:
       cache-control:
@@ -2424,16 +2378,16 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:48:13 GMT
+      - Sun, 25 Apr 2021 01:45:32 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
       server:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       - Microsoft-HTTPAPI/2.0
       server-sb:
-      - Service-Bus-Resource-Provider/SN1
+      - Service-Bus-Resource-Provider/CH3
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       transfer-encoding:
@@ -2461,16 +2415,13 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet"},"ignoreMissingVnetServiceEndpoint":true},{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true},{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
     headers:
       cache-control:
       - no-cache
@@ -2479,7 +2430,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:48:14 GMT
+      - Sun, 25 Apr 2021 01:45:34 GMT
       expires:
       - '-1'
       pragma:
@@ -2514,16 +2465,13 @@ interactions:
       ParameterSetName:
       - --resource-group --name --subnet
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
-        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet"},"ignoreMissingVnetServiceEndpoint":true},{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+        US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true},{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest2/subnets/secondvnet"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
     headers:
       cache-control:
       - no-cache
@@ -2532,7 +2480,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:48:16 GMT
+      - Sun, 25 Apr 2021 01:45:36 GMT
       expires:
       - '-1'
       pragma:
@@ -2554,10 +2502,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: 'b''{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [{"subnet":
+    body: '{"properties": {"defaultAction": "Deny", "virtualNetworkRules": [{"subnet":
       {"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},
       "ignoreMissingVnetServiceEndpoint": true}], "ipRules": [{"ipMask": "1.1.1.1",
-      "action": "Allow"}]}}'''
+      "action": "Allow"}]}}'
     headers:
       Accept:
       - application/json
@@ -2570,19 +2518,16 @@ interactions:
       Content-Length:
       - '403'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       ParameterSetName:
       - --resource-group --name --subnet
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: PUT
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default?api-version=2018-01-01-preview
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkRuleSets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/networkrulesets/default","name":"default","type":"Microsoft.ServiceBus/Namespaces/NetworkRuleSets","location":"West
         US","properties":{"defaultAction":"Deny","virtualNetworkRules":[{"subnet":{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/cli_test_sb_network000001/providers/Microsoft.Network/virtualNetworks/sbehvnettest1/subnets/default"},"ignoreMissingVnetServiceEndpoint":true}],"ipRules":[{"ipMask":"1.1.1.1","action":"Allow"}]}}'
     headers:
       cache-control:
@@ -2592,7 +2537,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:48:24 GMT
+      - Sun, 25 Apr 2021 01:45:43 GMT
       expires:
       - '-1'
       pragma:
@@ -2611,7 +2556,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1196'
+      - '1194'
     status:
       code: 200
       message: OK
@@ -2631,12 +2576,9 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
-      accept-language:
-      - en-US
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: DELETE
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: ''
@@ -2646,11 +2588,11 @@ interactions:
       content-length:
       - '0'
       date:
-      - Sat, 16 May 2020 02:48:26 GMT
+      - Sun, 25 Apr 2021 01:45:46 GMT
       expires:
       - '-1'
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2017-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2018-01-01-preview
       pragma:
       - no-cache
       server:
@@ -2663,7 +2605,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-deletes:
-      - '14997'
+      - '14999'
     status:
       code: 202
       message: Accepted
@@ -2671,7 +2613,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2681,27 +2623,26 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:48:26.793Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Removing"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:45:46.3Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Removing"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '682'
+      - '704'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:48:57 GMT
+      - Sun, 25 Apr 2021 01:46:16 GMT
       expires:
       - '-1'
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2017-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2018-01-01-preview
       pragma:
       - no-cache
       server:
@@ -2720,7 +2661,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2730,27 +2671,26 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
       string: '{"sku":{"name":"Premium","tier":"Premium","capacity":1},"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002","name":"servicebus-cli000002","type":"Microsoft.ServiceBus/Namespaces","location":"West
-        US","tags":{"{tag1":"value1}"},"properties":{"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2020-05-16T02:44:29.1Z","updatedAt":"2020-05-16T02:48:26.793Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Removing"}}'
+        US","tags":{"{tag1":"value1}"},"properties":{"zoneRedundant":false,"provisioningState":"Succeeded","metricId":"0b1f6471-1bf0-4dda-aec3-cb9272f09590:servicebus-cli000002","createdAt":"2021-04-25T01:41:31.363Z","updatedAt":"2021-04-25T01:45:46.3Z","serviceBusEndpoint":"https://servicebus-cli000002.servicebus.windows.net:443/","status":"Removing"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '682'
+      - '704'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:49:44 GMT
+      - Sun, 25 Apr 2021 01:47:04 GMT
       expires:
       - '-1'
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2017-04-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2018-01-01-preview
       pragma:
       - no-cache
       server:
@@ -2769,7 +2709,7 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
@@ -2779,34 +2719,34 @@ interactions:
       ParameterSetName:
       - --resource-group --name
       User-Agent:
-      - python/3.7.4 (Windows-10-10.0.18362-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-servicebus/0.6.0
-        Azure-SDK-For-Python AZURECLI/2.5.1
+      - AZURECLI/2.22.1 azsdk-python-mgmt-servicebus/6.0.0 Python/3.8.8 (Windows-10-10.0.19041-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2017-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cli_test_sb_network000001/providers/Microsoft.ServiceBus/namespaces/servicebus-cli000002/operationresults/servicebus-cli000002?api-version=2018-01-01-preview
   response:
     body:
-      string: ''
+      string: '{"error":{"code":"ResourceNotFound","message":"The Resource ''Microsoft.ServiceBus/namespaces/servicebus-cli000002''
+        under resource group ''cli_test_sb_network000001'' was not found. For more
+        details please go to https://aka.ms/ARMResourceNotFoundFix"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '0'
+      - '299'
+      content-type:
+      - application/json; charset=utf-8
       date:
-      - Sat, 16 May 2020 02:50:16 GMT
+      - Sun, 25 Apr 2021 01:48:01 GMT
       expires:
       - '-1'
       pragma:
       - no-cache
-      server:
-      - Service-Bus-Resource-Provider/CH3
-      - Microsoft-HTTPAPI/2.0
-      server-sb:
-      - Service-Bus-Resource-Provider/CH3
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       x-content-type-options:
       - nosniff
+      x-ms-failure-cause:
+      - gateway
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
 version: 1

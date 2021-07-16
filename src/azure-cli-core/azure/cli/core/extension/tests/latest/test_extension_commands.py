@@ -304,13 +304,18 @@ class TestExtensionCommands(unittest.TestCase):
         self.assertEqual(str(err.exception), 'The extension {} is not installed.'.format(MY_EXT_NAME))
 
     def test_update_extension_no_updates(self):
+        logger_msgs = []
+
+        def mock_log_warning(_, msg):
+            logger_msgs.append(msg)
+
         add_extension(cmd=self.cmd, source=MY_EXT_SOURCE)
         ext = show_extension(MY_EXT_NAME)
         self.assertEqual(ext[OUT_KEY_VERSION], '0.0.3+dev')
-        with mock.patch('azure.cli.core.extension.operations.resolve_from_index', side_effect=NoExtensionCandidatesError()):
-            with self.assertRaises(CLIError) as err:
-                update_extension(self.cmd, MY_EXT_NAME)
-            self.assertTrue("No updates available for '{}'.".format(MY_EXT_NAME) in str(err.exception))
+        with mock.patch('azure.cli.core.extension.operations.resolve_from_index', side_effect=NoExtensionCandidatesError()), \
+                mock.patch('logging.Logger.warning', mock_log_warning):
+            update_extension(self.cmd, MY_EXT_NAME)
+        self.assertTrue("No updates available for '{}'.".format(MY_EXT_NAME) in logger_msgs[0])
 
     def test_update_extension_exception_in_update_and_rolled_back(self):
         add_extension(cmd=self.cmd, source=MY_EXT_SOURCE)
@@ -327,19 +332,19 @@ class TestExtensionCommands(unittest.TestCase):
 
     def test_list_available_extensions_default(self):
         with mock.patch('azure.cli.core.extension.operations.get_index_extensions', autospec=True) as c:
-            list_available_extensions()
-            c.assert_called_once_with(None)
+            list_available_extensions(cli_ctx=self.cmd.cli_ctx)
+            c.assert_called_once_with(None, self.cmd.cli_ctx)
 
     def test_list_available_extensions_operations_index_url(self):
         with mock.patch('azure.cli.core.extension.operations.get_index_extensions', autospec=True) as c:
             index_url = 'http://contoso.com'
-            list_available_extensions(index_url=index_url)
-            c.assert_called_once_with(index_url)
+            list_available_extensions(index_url=index_url, cli_ctx=self.cmd.cli_ctx)
+            c.assert_called_once_with(index_url, self.cmd.cli_ctx)
 
     def test_list_available_extensions_show_details(self):
         with mock.patch('azure.cli.core.extension.operations.get_index_extensions', autospec=True) as c:
-            list_available_extensions(show_details=True)
-            c.assert_called_once_with(None)
+            list_available_extensions(show_details=True, cli_ctx=self.cmd.cli_ctx)
+            c.assert_called_once_with(None, self.cmd.cli_ctx)
 
     def test_list_available_extensions_no_show_details(self):
         sample_index_extensions = {
@@ -359,7 +364,7 @@ class TestExtensionCommands(unittest.TestCase):
                 }}]
         }
         with mock.patch('azure.cli.core.extension.operations.get_index_extensions', return_value=sample_index_extensions):
-            res = list_available_extensions()
+            res = list_available_extensions(cli_ctx=self.cmd.cli_ctx)
             self.assertIsInstance(res, list)
             self.assertEqual(len(res), len(sample_index_extensions))
             self.assertEqual(res[0]['name'], 'test_sample_extension1')
@@ -368,7 +373,7 @@ class TestExtensionCommands(unittest.TestCase):
             self.assertEqual(res[0]['preview'], False)
             self.assertEqual(res[0]['experimental'], False)
         with mock.patch('azure.cli.core.extension.operations.get_index_extensions', return_value=sample_index_extensions):
-            res = list_available_extensions()
+            res = list_available_extensions(cli_ctx=self.cmd.cli_ctx)
             self.assertIsInstance(res, list)
             self.assertEqual(len(res), len(sample_index_extensions))
             self.assertEqual(res[1]['name'], 'test_sample_extension2')
@@ -388,7 +393,7 @@ class TestExtensionCommands(unittest.TestCase):
                 }}]
         }
         with mock.patch('azure.cli.core.extension.operations.get_index_extensions', return_value=sample_index_extensions):
-            res = list_available_extensions()
+            res = list_available_extensions(cli_ctx=self.cmd.cli_ctx)
             self.assertIsInstance(res, list)
             self.assertEqual(len(res), 0)
 

@@ -33,6 +33,7 @@ class RouteSourceType(Enum):
     DeviceLifecycleEvents = 'devicelifecycleevents'
     DeviceJobLifecycleEvents = 'devicejoblifecycleevents'
     DigitalTwinChangeEvents = 'digitaltwinchangeevents'
+    DeviceConnectionStateEvents = 'deviceconnectionstateevents'
 
 
 # pylint: disable=too-few-public-methods
@@ -42,16 +43,6 @@ class EncodingFormat(Enum):
     """
     JSON = 'json'
     AVRO = 'avro'
-
-
-# pylint: disable=too-few-public-methods
-class UserRole(Enum):
-    """
-    Type of the user role for the repository key.
-    """
-    Admin = 'admin'
-    Reader = 'reader'
-    Contributer = 'contributer'
 
 
 # pylint: disable=too-few-public-methods
@@ -71,3 +62,14 @@ class AuthenticationType(Enum):
     """
     KeyBased = 'keybased'
     IdentityBased = 'identitybased'
+
+
+# pylint: disable=too-few-public-methods
+class IdentityType(Enum):
+    """
+    Type of managed identity for the IoT Hub.
+    """
+    system_assigned = "SystemAssigned"
+    user_assigned = "UserAssigned"
+    system_assigned_user_assigned = "SystemAssigned, UserAssigned"
+    none = "None"

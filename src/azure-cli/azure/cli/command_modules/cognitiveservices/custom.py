@@ -3,16 +3,17 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
+import json
+
 from knack.prompting import prompt_y_n
 from knack.util import CLIError
 from knack.log import get_logger
-import json
 
-from azure.cli.command_modules.cognitiveservices._client_factory import cf_accounts, cf_resource_skus
-from azure.mgmt.cognitiveservices.models import CognitiveServicesAccount, Sku,\
+from azure.mgmt.cognitiveservices.models import Account as CognitiveServicesAccount, Sku,\
     VirtualNetworkRule, IpRule, NetworkRuleSet, NetworkRuleAction,\
-    CognitiveServicesAccountProperties, CognitiveServicesAccountApiProperties,\
-    Identity, IdentityType
+    AccountProperties as CognitiveServicesAccountProperties, ApiProperties as CognitiveServicesAccountApiProperties,\
+    Identity, ResourceIdentityType as IdentityType
+from azure.cli.command_modules.cognitiveservices._client_factory import cf_accounts, cf_resource_skus
 
 logger = get_logger(__name__)
 
@@ -23,11 +24,20 @@ def list_resources(client, resource_group_name=None):
     return client.list()
 
 
+def recover(client, location, resource_group_name, account_name):
+    properties = CognitiveServicesAccountProperties()
+    properties.restore = True
+    params = CognitiveServicesAccount(properties=properties)
+    params.location = location
+
+    return client.begin_create(resource_group_name, account_name, params)
+
+
 def list_usages(client, resource_group_name, account_name):
     """
     List usages for Azure Cognitive Services account.
     """
-    return client.get_usages(resource_group_name, account_name).value
+    return client.list_usages(resource_group_name, account_name).value
 
 
 def list_kinds(client):
@@ -83,7 +93,9 @@ def create(
         'Microsoft offers policy controls that may be used to disable new Cognitive'\
         ' Services deployments (https://docs.microsoft.com/azure/cognitive-servic'\
         'es/cognitive-services-apis-create-account).'
-    hint = '\nPlease select'
+    terms_not_police = 'Notice\n' \
+                       'I certify that use of this service is not by or for a police department in the United States.'
+    hint = 'Please select'
     import re
     pattern = re.compile("^[Bb]ing\\..*$")
     if pattern.match(kind):
@@ -94,6 +106,15 @@ def create(
             option = prompt_y_n(hint)
             if not option:
                 raise CLIError('Operation cancelled.')
+    if kind.lower() == 'face' or kind.lower() == 'cognitiveservices':
+        if yes:
+            logger.warning(terms_not_police)
+        else:
+            logger.warning(terms_not_police)
+            option = prompt_y_n(hint)
+            if not option:
+                raise CLIError('Operation cancelled.')
+
     sku = Sku(name=sku_name)
 
     properties = CognitiveServicesAccountProperties()
@@ -113,14 +134,14 @@ def create(
     if encryption is not None:
         params.properties.encryption = json.loads(encryption)
 
-    return client.create(resource_group_name, account_name, params)
+    return client.begin_create(resource_group_name, account_name, params)
 
 
 def update(client, resource_group_name, account_name, sku_name=None, custom_domain=None,
            tags=None, api_properties=None, storage=None, encryption=None):
 
     if sku_name is None:
-        sa = client.get_properties(resource_group_name, account_name)
+        sa = client.get(resource_group_name, account_name)
         sku_name = sa.sku.name
 
     sku = Sku(name=sku_name)
@@ -139,7 +160,7 @@ def update(client, resource_group_name, account_name, sku_name=None, custom_doma
     if encryption is not None:
         params.properties.encryption = json.loads(encryption)
 
-    return client.update(resource_group_name, account_name, params)
+    return client.begin_update(resource_group_name, account_name, params)
 
 
 def default_network_acls():
@@ -151,7 +172,7 @@ def default_network_acls():
 
 
 def list_network_rules(client, resource_group_name, account_name):
-    sa = client.get_properties(resource_group_name, account_name)
+    sa = client.get(resource_group_name, account_name)
     rules = sa.properties.network_acls
     if rules is None:
         rules = default_network_acls()
@@ -160,7 +181,7 @@ def list_network_rules(client, resource_group_name, account_name):
 
 def add_network_rule(client, resource_group_name, account_name, subnet=None,
                      vnet_name=None, ip_address=None):  # pylint: disable=unused-argument
-    sa = client.get_properties(resource_group_name, account_name)
+    sa = client.get(resource_group_name, account_name)
     rules = sa.properties.network_acls
     if rules is None:
         rules = default_network_acls()
@@ -182,12 +203,12 @@ def add_network_rule(client, resource_group_name, account_name, subnet=None,
     properties.network_acls = rules
     params = CognitiveServicesAccount(properties=properties)
 
-    return client.update(resource_group_name, account_name, params)
+    return client.begin_update(resource_group_name, account_name, params)
 
 
 def remove_network_rule(client, resource_group_name, account_name, ip_address=None, subnet=None,
                         vnet_name=None):  # pylint: disable=unused-argument
-    sa = client.get_properties(resource_group_name, account_name)
+    sa = client.get(resource_group_name, account_name)
     rules = sa.properties.network_acls
     if rules is None:
         # nothing to update, but return the object
@@ -203,22 +224,22 @@ def remove_network_rule(client, resource_group_name, account_name, ip_address=No
     properties.network_acls = rules
     params = CognitiveServicesAccount(properties=properties)
 
-    return client.update(resource_group_name, account_name, params)
+    return client.begin_update(resource_group_name, account_name, params)
 
 
 def identity_assign(client, resource_group_name, account_name):
     params = CognitiveServicesAccount()
     params.identity = Identity(type=IdentityType.system_assigned)
-    sa = client.update(resource_group_name, account_name, params)
+    sa = client.begin_update(resource_group_name, account_name, params).result()
     return sa.identity if sa.identity else {}
 
 
 def identity_remove(client, resource_group_name, account_name):
     params = CognitiveServicesAccount()
     params.identity = Identity(type=IdentityType.none)
-    client.update(resource_group_name, account_name, params)
+    client.begin_update(resource_group_name, account_name, params)
 
 
 def identity_show(client, resource_group_name, account_name):
-    sa = client.get_properties(resource_group_name, account_name)
+    sa = client.get(resource_group_name, account_name)
     return sa.identity if sa.identity else {}

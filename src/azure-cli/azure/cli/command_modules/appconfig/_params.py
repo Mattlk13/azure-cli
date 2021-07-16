@@ -22,7 +22,7 @@ from ._validators import (validate_appservice_name_or_id,
                           validate_feature_query_fields, validate_filter_parameters,
                           validate_separator, validate_secret_identifier,
                           validate_key, validate_feature,
-                          validate_identity,
+                          validate_identity, validate_auth_mode,
                           validate_resolve_keyvault)
 
 
@@ -43,7 +43,7 @@ def load_arguments(self, _):
     )
     filter_parameters_arg_type = CLIArgumentType(
         validator=validate_filter_parameters,
-        help="Space-separated filter parameters in 'name[=value]' format.",
+        help="Space-separated filter parameters in 'name[=value]' format. The value must be an escaped JSON string.",
         nargs='*'
     )
     datatime_filter_arg_type = CLIArgumentType(
@@ -57,8 +57,7 @@ def load_arguments(self, _):
     )
     identities_arg_type = CLIArgumentType(
         nargs='*',
-        validator=validate_identity,
-        help="Accept system or user assigned identities separated by spaces. Use '[system]' to refer system assigned identity or a resource id to refer user assigned identity. Use system assigned identity if not specified."
+        validator=validate_identity
     )
 
     with self.argument_context('appconfig') as c:
@@ -71,26 +70,41 @@ def load_arguments(self, _):
         c.argument('top', arg_type=top_arg_type)
         c.argument('all_', options_list=['--all'], action='store_true', help="List all items.")
         c.argument('fields', arg_type=fields_arg_type)
-        c.argument('sku', help='The sku of App Configuration', arg_type=get_enum_type(['free', 'standard']))
+        c.argument('sku', help='The sku of App Configuration', arg_type=get_enum_type(['Free', 'Standard']))
+        c.argument('endpoint', help='If auth mode is "login", provide endpoint URL of the App Configuration. The endpoint can be retrieved using "az appconfig show" command. You can configure the default endpoint using `az configure --defaults appconfig_endpoint=<endpoint>`', configured_default='appconfig_endpoint')
+        c.argument('auth_mode', arg_type=get_enum_type(['login', 'key']), configured_default='appconfig_auth_mode', validator=validate_auth_mode,
+                   help='This parameter can be used for indicating how a data operation is to be authorized. ' +
+                   'If the auth mode is "key", provide connection string or store name and your account access keys will be retrieved for authorization. ' +
+                   'If the auth mode is "login", provide the store endpoint or store name and your "az login" credentials will be used for authorization. ' +
+                   'You can configure the default auth mode using `az configure --defaults appconfig_auth_mode=<auth_mode>`. ' +
+                   'For more information, see https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-enable-rbac')
 
     with self.argument_context('appconfig create') as c:
         c.argument('location', options_list=['--location', '-l'], arg_type=get_location_type(self.cli_ctx), validator=get_default_location_from_resource_group)
-        c.argument('assign_identity', arg_type=identities_arg_type, is_preview=True)
+        c.argument('tags', arg_type=tags_type, help="Space-separated tags: key[=value] [key[=value] ...].")
+        c.argument('assign_identity', arg_type=identities_arg_type,
+                   help='Space-separated list of managed identities to be assigned. Use "[system]" to refer to system-assigned managed identity or a resource ID to refer to user-assigned managed identity. If this argument is provided without any value, system-assigned managed identity will be assigned by default. If this argument is not provided, no managed identities will be assigned to this App Configuration store.')
+        c.argument('enable_public_network', options_list=['--enable-public-network', '-e'], arg_type=get_three_state_flag(), is_preview=True,
+                   help='When true, requests coming from public networks have permission to access this store while private endpoint is enabled. When false, only requests made through Private Links can reach this store.')
+        c.argument('disable_local_auth', arg_type=get_three_state_flag(), is_preview=True, help='Disable all authentication methods other than AAD authentication.')
 
     with self.argument_context('appconfig update') as c:
         c.argument('tags', arg_type=tags_type)
+        c.argument('enable_public_network', options_list=['--enable-public-network', '-e'], arg_type=get_three_state_flag(), is_preview=True,
+                   help='When true, requests coming from public networks have permission to access this store while private endpoint is enabled. When false, only requests made through Private Links can reach this store.')
+        c.argument('disable_local_auth', arg_type=get_three_state_flag(), is_preview=True, help='Disable all authentication methods other than AAD authentication.')
 
-    with self.argument_context('appconfig update', arg_group='Customer Managed Key', is_preview=True) as c:
+    with self.argument_context('appconfig update', arg_group='Customer Managed Key') as c:
         c.argument('encryption_key_name', help='The name of the KeyVault key.')
         c.argument('encryption_key_vault', help='The URI of the KeyVault.')
         c.argument('encryption_key_version', help='The version of the KeyVault key. Use the latest version by default.')
-        c.argument('identity_client_id', help='Client ID of the managed identity with wrap and unwrap access to encryption key. Use system assigned identity by default.')
+        c.argument('identity_client_id', help='Client ID of the managed identity with wrap and unwrap access to encryption key. Use system-assigned managed identity by default.')
 
     with self.argument_context('appconfig identity assign') as c:
-        c.argument('identities', arg_type=identities_arg_type)
+        c.argument('identities', arg_type=identities_arg_type, help="Accept system-assigned or user-assigned managed identities separated by spaces. Use '[system]' to refer to system-assigned managed identity or a resource ID to refer to user-assigned managed identity. If this argument is not provided or this argument is provided without any value, system-assigned managed identity will be used by default.")
 
     with self.argument_context('appconfig identity remove') as c:
-        c.argument('identities', arg_type=identities_arg_type, help="Accept system or user assigned identities separated by spaces. Use '[system]' to refer system assigned identity, '[all]' for all identities or a resource id to refer user assigned identity. Remove system assigned identity if not specified.")
+        c.argument('identities', arg_type=identities_arg_type, help="Accept system-assigned or user-assigned managed identities separated by spaces. Use '[system]' to refer to system-assigned managed identity, '[all]' for all managed identities or a resource ID to refer user-assigned managed identity. If this argument is not provided or this argument is provided without any value, system-assigned managed identity will be removed by default.")
 
     with self.argument_context('appconfig credential regenerate') as c:
         c.argument('id_', options_list=['--id'], help='Id of the key to be regenerated. Can be found using az appconfig credential list command.')
@@ -106,9 +120,9 @@ def load_arguments(self, _):
     with self.argument_context('appconfig kv import', arg_group='File') as c:
         c.argument('path', help='Local configuration file path. Required for file arguments.')
         c.argument('format_', options_list=['--format'], arg_type=get_enum_type(['json', 'yaml', 'properties']), help='Imported file format. Required for file arguments. Currently, feature flags are not supported in properties format.')
-        c.argument('depth', validator=validate_import_depth, help="Depth for flattening the json or yaml file to key-value pairs. Flatten to the deepest level by default. Not applicable for property files or feature flags.")
+        c.argument('depth', validator=validate_import_depth, help="Depth for flattening the json or yaml file to key-value pairs. Flatten to the deepest level by default if --separator is provided. Not applicable for property files or feature flags.")
         # bypass cli allowed values limition
-        c.argument('separator', validator=validate_separator, help="Delimiter for flattening the json or yaml file to key-value pairs. Required for importing hierarchical structure. Separator will be ignored for property files and feature flags. Supported values: '.', ',', ';', '-', '_', '__', '/', ':' ")
+        c.argument('separator', validator=validate_separator, help="Delimiter for flattening the json or yaml file to key-value pairs. Separator will be ignored for property files and feature flags. Supported values: '.', ',', ';', '-', '_', '__', '/', ':' ")
 
     with self.argument_context('appconfig kv import', arg_group='AppConfig') as c:
         c.argument('src_name', help='The name of the source App Configuration.')
@@ -116,6 +130,9 @@ def load_arguments(self, _):
         c.argument('src_key', help='If no key specified, import all keys by default. Support star sign as filters, for instance abc* means keys with abc as prefix. Key filtering not applicable for feature flags. By default, all feature flags with specified label will be imported.')
         c.argument('src_label', help="Only keys with this label in source AppConfig will be imported. If no value specified, import keys with null label by default. Support star sign as filters, for instance * means all labels, abc* means labels with abc as prefix.")
         c.argument('preserve_labels', arg_type=get_three_state_flag(), help="Flag to preserve labels from source AppConfig. This argument should NOT be specified along with --label.")
+        c.argument('src_endpoint', help='If --src-auth-mode is "login", provide endpoint URL of the source App Configuration.')
+        c.argument('src_auth_mode', arg_type=get_enum_type(['login', 'key']),
+                   help='Auth mode for connecting to source App Configuration. For details, refer to "--auth-mode" argument.')
 
     with self.argument_context('appconfig kv import', arg_group='AppService') as c:
         c.argument('appservice_account', validator=validate_appservice_name_or_id, help='ARM ID for AppService OR the name of the AppService, assuming it is in the same subscription and resource group as the App Configuration. Required for AppService arguments')
@@ -132,9 +149,9 @@ def load_arguments(self, _):
     with self.argument_context('appconfig kv export', arg_group='File') as c:
         c.argument('path', help='Local configuration file path. Required for file arguments.')
         c.argument('format_', options_list=['--format'], arg_type=get_enum_type(['json', 'yaml', 'properties']), help='File format exporting to. Required for file arguments. Currently, feature flags are not supported in properties format.')
-        c.argument('depth', validator=validate_import_depth, help="Depth for flattening the json or yaml file to key-value pairs. Flatten to the deepest level by default. Not appicable for property files or feature flags.")
+        c.argument('depth', validator=validate_import_depth, help="Depth for flattening the key-value pairs to json or yaml file. Flatten to the deepest level by default. Not applicable for property files or feature flags.")
         # bypass cli allowed values limition
-        c.argument('separator', validator=validate_separator, help="Delimiter for flattening the json or yaml file to key-value pairs. Required for exporting hierarchical structure. Separator will be ignored for property files and feature flags. Supported values: '.', ',', ';', '-', '_', '__', '/', ':' ")
+        c.argument('separator', validator=validate_separator, help="Delimiter for flattening the key-value pairs to json or yaml file. Required for exporting hierarchical structure. Separator will be ignored for property files and feature flags. Supported values: '.', ',', ';', '-', '_', '__', '/', ':' ")
         c.argument('naming_convention', arg_type=get_enum_type(['pascal', 'camel', 'underscore', 'hyphen']), help='Naming convention to be used for "Feature Management" section of file. Example: pascal = FeatureManagement, camel = featureManagement, underscore = feature_management, hyphen = feature-management.')
         c.argument('resolve_keyvault', arg_type=get_three_state_flag(), validator=validate_resolve_keyvault, help="Resolve the content of key vault reference.")
 
@@ -143,6 +160,9 @@ def load_arguments(self, _):
         c.argument('dest_connection_string', validator=validate_connection_string, help="Combination of access key and endpoint of the destination store.")
         c.argument('dest_label', help="Exported KVs will be labeled with this destination label. If neither --dest-label nor --preserve-labels is specified, will assign null label.")
         c.argument('preserve_labels', arg_type=get_three_state_flag(), help="Flag to preserve labels from source AppConfig. This argument should NOT be specified along with --dest-label.")
+        c.argument('dest_endpoint', help='If --dest-auth-mode is "login", provide endpoint URL of the destination App Configuration.')
+        c.argument('dest_auth_mode', arg_type=get_enum_type(['login', 'key']),
+                   help='Auth mode for connecting to destination App Configuration. For details, refer to "--auth-mode" argument.')
 
     with self.argument_context('appconfig kv export', arg_group='AppService') as c:
         c.argument('appservice_account', validator=validate_appservice_name_or_id, help='ARM ID for AppService OR the name of the AppService, assuming it is in the same subscription and resource group as the App Configuration. Required for AppService arguments')
@@ -175,7 +195,7 @@ def load_arguments(self, _):
 
     with self.argument_context('appconfig kv restore') as c:
         c.argument('key', help='If no key specified, restore all keys by default. Support star sign as filters, for instance abc* means keys with abc as prefix.')
-        c.argument('label', help="If no label specified, restore all key-value pairs with all labels. Support star sign as filters, for instance abc* means labels with abc as prefix.")
+        c.argument('label', help="If no label specified, restore all key-value pairs with all labels. Support star sign as filters, for instance abc* means labels with abc as prefix. Use '\\0' for null label.")
 
     with self.argument_context('appconfig kv lock') as c:
         c.argument('key', help='Key to be locked.')
